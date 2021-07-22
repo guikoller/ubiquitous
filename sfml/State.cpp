@@ -13,7 +13,7 @@ State::~State()
 
 
 void State::initFont() {
-    if (!this->fonte.loadFromFile("Font/upheavtt.ttf")) {
+    if (!this->font.loadFromFile("Font/upheavtt.ttf")) {
         throw("ERRO FONTE NÃO CARREGADA");
     }
 }

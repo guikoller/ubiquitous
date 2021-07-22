@@ -10,7 +10,7 @@ public:
     sf::RenderWindow* window;
     bool quit;
 
-    sf::Font fonte;
+    sf::Font font;
 
     sf::Vector2i mousePosScreen;
     sf::Vector2i mousePosWindow;

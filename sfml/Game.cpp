@@ -10,7 +10,7 @@ void Game::initWindow() {
 }
 
 void Game::initStates() {
-    this->states.push(new MenuPrincipal(&window, &this->states));
+    this->states.push(new MainMenu(&window, &this->states));
 }
 
 Game::Game() {

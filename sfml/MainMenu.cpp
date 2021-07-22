@@ -83,7 +83,7 @@ void MainMenu::updateButton() {
 void MainMenu::update() {
     this->updateKeybinds();
     this->updateMousePosition();
-    std::cout << this->mousePosWindow.x << ", " << this->mousePosWindow.y << std::endl;
+    //std::cout << this->mousePosWindow.x << ", " << this->mousePosWindow.y << std::endl;
     updateButton();
 }
 
