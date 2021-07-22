@@ -80,7 +80,7 @@ void Game::render() {
 
 /////////////////////////////////////////////////////
 
-void Game::executar() {
+void Game::run() {
     //menu.desenhar(&window);
     while (this->getWindow().isOpen())
     {

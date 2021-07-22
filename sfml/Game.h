@@ -31,5 +31,5 @@ public:
     void updateSFMLevents();
     void updateState();
     void render();
-    void executar();
+    void run();
 };
