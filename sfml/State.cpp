@@ -7,8 +7,7 @@ State::State(sf::RenderWindow* window, std::stack<State*>* states) {
     this->states = states;
 }
 
-State::~State()
-{
+State::~State(){
 }
 
 
@@ -22,11 +21,8 @@ void State::initFont() {
 }
 
 void State::update() {
-    // this->updateEntidade();
-    // this->updateColisao();
     this->updateKeybinds();
     this->updateMousePosition();
-    //std::cout << this->mousePosWindow.x << ", " << this->mousePosWindow.y << std::endl;
     system("clear");
 }
 
