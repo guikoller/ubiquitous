@@ -13,7 +13,7 @@ Button::Button(float x, float y, float width, float height, std::string text, sf
     this->text.setCharacterSize(30);
     this->text.setPosition(
         this->shape.getPosition().x + (this->shape.getGlobalBounds().width / 2.f) - this->text.getGlobalBounds().width / 2.f,
-        this->shape.getPosition().y + (this->shape.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height * 1.5f
+        this->shape.getPosition().y + (this->shape.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height
     );
 
     this->idleColor = idleColor;
@@ -26,11 +26,15 @@ Button::Button(float x, float y, float width, float height, std::string text, sf
 Button::~Button() {}
 
 
-bool Button::isPressed() {
+const bool Button::isPressed() const{
     if (this->btn_state == BTN_PRESSED) {
         return true;
     }
     return false;
+}
+
+void Button::setTextYPosition(const int y){
+    this->text.setPosition(sf::Vector2f(text.getPosition().x, y));
 }
 
 void Button::update(const sf::Vector2f mousePos) {

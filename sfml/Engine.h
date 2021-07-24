@@ -23,11 +23,17 @@ namespace Engine {
 	public:
 		using sf::Keyboard::Keyboard;
 	};
+	class Text : public sf::Text {
+		using sf::Text::Text;
+	};
 
 	//Window, view and event stuff
 	class RenderWindow : public sf::RenderWindow{
 	public:
 		using sf::RenderWindow::RenderWindow;
+	};
+	class RenderTarget : public sf::RenderTarget {
+		using sf::RenderTarget::RenderTarget;
 	};
 	class VideoMode : public sf::VideoMode{
 	public:
@@ -61,7 +67,7 @@ namespace Engine {
 		using sf::Color::Color;
 	};
 
-	//Texture and Sprites
+	//Texture, Font and Sprites 
 	class Texture : public sf::Texture{
 	public:
 		using sf::Texture::Texture;
@@ -70,5 +76,8 @@ namespace Engine {
 	class Sprite : sf::Sprite{
 	public:
 		using sf::Sprite::Sprite;
+	};
+	class Font : public sf::Font {
+		using sf::Font::Font;
 	};
 }

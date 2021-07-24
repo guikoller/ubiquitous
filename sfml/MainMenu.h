@@ -1,8 +1,10 @@
 #pragma once
-
+#include <SFML/Graphics.hpp>
 #include <stdlib.h>
+#include <iostream>
 #include "State.h"
 #include "Button.h"
+
 
 class MainMenu : public State {
 private:

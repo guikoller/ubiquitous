@@ -2,38 +2,42 @@
 
 void MainMenu::initButton() {
 
-    this->btns["START"] = new Button(700, 550, 200, 80, "initr", &this->fonte,
+    this->btns["START"] = new Button(700, 550, 220, 80, "start", &this->font,
+        sf::Color(0, 0, 0, 230),
+        sf::Color(10, 10, 10, 200),
+        sf::Color(20, 20, 20, 150));
+    this->btns["START"]->setTextYPosition(570.f);
+
+    this->btns["PLACAR"] = new Button(700, 650, 220, 80, "leaderboard", &this->font,
+        sf::Color(0, 0, 0, 230),
+        sf::Color(10, 10, 10, 200),
+        sf::Color(20, 20, 20, 150));
+    this->btns["PLACAR"]->setTextYPosition(670.f);
+
+    this->btns["SAIR"] = new Button(700, 750, 220, 80, "quit", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
-    this->btns["PLACAR"] = new Button(700, 650, 200, 80, "Placar", &this->fonte,
-        sf::Color(0, 0, 0, 230),
-        sf::Color(10, 10, 10, 200),
-        sf::Color(20, 20, 20, 150));
-
-    this->btns["SAIR"] = new Button(700, 750, 200, 80, "Sair", &this->fonte,
-        sf::Color(0, 0, 0, 230),
-        sf::Color(10, 10, 10, 200),
-        sf::Color(20, 20, 20, 150));
+    this->btns["SAIR"]->setTextYPosition(767.f);
 }
 
 void MainMenu::initBackground() {
-    /*if (!this->texture.loadFromFile("Textures/Background/bg.png"))
+    if (!this->texture.loadFromFile("Resources/Images/bg.png"))
         printf("BACKGROUND NÃO CARREGADO\n");
 
     this->background.setTexture(this->texture);
-    this->background.setScale(6.f, 7.f);
-    */
+    this->background.setScale(1.8f, 1.5f);
+    
 }
 
 
 void MainMenu::initTitle() {
-    this->title.setFont(this->fonte);
-    this->title.setString("JOGASSO");
-    this->title.setCharacterSize(300);
-    this->title.setColor(sf::Color(250, 250, 250, 250));
-    this->title.setPosition(sf::Vector2f(150, 100));
+    this->title.setFont(this->font);
+    this->title.setString("Ubiquitous");
+    this->title.setCharacterSize(150);
+    //this->title.setColor(sf::Color(250, 250, 250, 250));
+    this->title.setPosition(sf::Vector2f(385, 150));
 }
 
 MainMenu::MainMenu(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
@@ -83,7 +87,7 @@ void MainMenu::updateButton() {
 void MainMenu::update() {
     this->updateKeybinds();
     this->updateMousePosition();
-    //std::cout << this->mousePosWindow.x << ", " << this->mousePosWindow.y << std::endl;
+    std::cout << this->mousePosWindow.x << ", " << this->mousePosWindow.y << std::endl;
     updateButton();
 }
 

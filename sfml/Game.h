@@ -2,7 +2,7 @@
 #include <stack>
 #include <SFML/Graphics.hpp>
 #include "State.h"
-#include "MainMenu.h";
+#include "MainMenu.h"
 
 
 

@@ -1,24 +1,10 @@
-#include "Engine.h"
+#include "Game.h"
 
 int main()
 {
-    Engine::RenderWindow window(Engine::VideoMode(200, 200), "SFML works!");
-    Engine::CircleShape shape(100.f);
-    shape.setFillColor(Engine::Color::Green);
+    Game game;
 
-    while (window.isOpen())
-    {
-        Engine::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == Engine::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
+    game.run();
 
     return 0;
 }

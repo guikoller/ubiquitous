@@ -22,9 +22,10 @@ public:
     ~Button();
 
     //acessores
-    bool isPressed();
+    const bool isPressed() const;
 
     //funções
+    void setTextYPosition(const int y);
     void update(const sf::Vector2f mousePos);
     void render(sf::RenderTarget& target);
 };
