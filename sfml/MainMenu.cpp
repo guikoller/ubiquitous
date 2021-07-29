@@ -72,7 +72,7 @@ void MainMenu::updateButton() {
     else if (this->btns["START"]->isPressed())
     {
         // PUSH NOVO STATE
-        //this->states->push(new MenuLevel(this->window, this->states));
+        this->states->push(new GameState(this->window, this->states));
         printf("Button  inicar precionado\n");
     }
     else if (this->btns["PLACAR"]->isPressed())

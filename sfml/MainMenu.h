@@ -4,6 +4,7 @@
 #include <iostream>
 #include "State.h"
 #include "Button.h"
+#include "GameState.h"
 
 
 class MainMenu : public State {

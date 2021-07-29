@@ -1,0 +1,14 @@
+{ "columns":82,
+ "image":"..\/..\/..\/..\/..\/..\/Desktop\/Merchant Tileset Sidescroller\/Sci-fi Tileset re-imagined.png",
+ "imageheight":256,
+ "imagewidth":656,
+ "margin":0,
+ "name":"Sci-fi Tileset re-imagined",
+ "spacing":0,
+ "tilecount":2624,
+ "tiledversion":"1.7.1",
+ "tileheight":8,
+ "tilewidth":8,
+ "type":"tileset",
+ "version":"1.6"
+}
