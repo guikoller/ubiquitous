@@ -1,15 +1,27 @@
 #include "Game.h"
 
 void Game::initWindow() {
-    int width = 1600;
-    int height = 900;
-    std::string name = "Jogasso";
+    std::ifstream ifs("Resources/Config/window.ini");
+    
+    std::string title = "None";
+    sf::VideoMode window_bounds(1600, 900);
+    unsigned framerate_limit = 120;
+    bool vertical_sync_enabled = false;
+    
+    if (ifs.is_open()) {
+        std::getline(ifs, title);
+        ifs >> window_bounds.width >> window_bounds.height;
+        ifs >> framerate_limit;
+        ifs >> vertical_sync_enabled;
+    }
+    
+    ifs.close();
 
-    this->window.create(sf::VideoMode(width, height), name);
+    this->window.create(window_bounds, title);
     sf::View view(sf::FloatRect(0, 0, 1600, 900));
     this->window.setView(view);
-    this->window.setFramerateLimit(144);
-    this->window.setVerticalSyncEnabled(true);
+    this->window.setFramerateLimit(framerate_limit);
+    this->window.setVerticalSyncEnabled(vertical_sync_enabled);
 }
 
 void Game::initStates() {

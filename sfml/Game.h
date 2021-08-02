@@ -4,6 +4,8 @@
 #include "State.h"
 #include "MainMenu.h"
 #include <string.h>
+#include <fstream>
+#include <sstream>
 
 
 
