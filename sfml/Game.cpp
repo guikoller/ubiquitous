@@ -1,8 +1,11 @@
 #include "Game.h"
 
 void Game::initWindow() {
+    int width = 1600;
+    int height = 900;
+    std::string name = "Jogasso";
 
-    this->window.create(sf::VideoMode(1600, 900), "Jogasso");
+    this->window.create(sf::VideoMode(width, height), name);
     sf::View view(sf::FloatRect(0, 0, 1600, 900));
     this->window.setView(view);
     this->window.setFramerateLimit(144);

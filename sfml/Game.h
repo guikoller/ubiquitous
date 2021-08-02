@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "State.h"
 #include "MainMenu.h"
+#include <string.h>
 
 
 
