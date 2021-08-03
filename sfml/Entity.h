@@ -1,0 +1,19 @@
+#pragma once
+#include <SFML/Graphics.hpp>
+class Entity{
+private:
+
+protected:
+	sf::RectangleShape shape;
+	float movementSpeed;
+public:
+	Entity();
+	virtual ~Entity();
+
+	//Functions
+	virtual void move(const float& dt, const float x, const float y);
+	virtual void update(const float& dt) = 0;
+	virtual void render(sf::RenderTarget* target = nullptr)= 0;
+
+};
+
