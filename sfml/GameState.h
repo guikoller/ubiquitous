@@ -1,12 +1,13 @@
 #pragma once
 #include "State.h"
+#include "Entity.h"
 class GameState : public State{
 private:
-	sf::RectangleShape player;
+	Entity player;
 public:
 	GameState(sf::RenderWindow* window, std::stack<State*>* states);
 	~GameState();
-	void update();
-	void render(sf::RenderTarget& target);
+	void update(const float dt);
+	void render(sf::RenderTarget* target);
 };
 

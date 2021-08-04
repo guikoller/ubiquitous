@@ -8,12 +8,13 @@ GameState::~GameState() {
 
 }
 
-void GameState::update()
+void GameState::update(const float dt)
 {
+	this->player.update(dt);
 }
 
-void GameState::render(sf::RenderTarget& target)
-{
+void GameState::render(sf::RenderTarget* target){
+	this->player.render(target);
 }
 
 
