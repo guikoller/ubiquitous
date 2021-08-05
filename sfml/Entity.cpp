@@ -22,6 +22,6 @@ void Entity::update(const float& dt) {
 		move(dt, 0.f, -1.f);
 }
 
-void Entity::render(sf::RenderTarget* target = nullptr) {
-	target->draw(this->shape);
+void Entity::render(sf::RenderTarget& target) {
+	target.draw(this->shape);
 }

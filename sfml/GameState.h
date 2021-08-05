@@ -7,7 +7,7 @@ private:
 public:
 	GameState(sf::RenderWindow* window, std::stack<State*>* states);
 	~GameState();
-	void update(const float dt);
-	void render(sf::RenderTarget* target);
+	void update(const float& dt);
+	void render(sf::RenderTarget& target);
 };
 

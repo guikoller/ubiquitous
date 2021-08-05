@@ -33,7 +33,7 @@ const bool Button::isPressed() const{
     return false;
 }
 
-void Button::setTextYPosition(const int y){
+void Button::setTextYPosition(const float y){
     this->text.setPosition(sf::Vector2f(text.getPosition().x, y));
 }
 

@@ -25,7 +25,7 @@ public:
     const bool isPressed() const;
 
     //funções
-    void setTextYPosition(const int y);
+    void setTextYPosition(const float y);
     void update(const sf::Vector2f mousePos);
     void render(sf::RenderTarget& target);
 };

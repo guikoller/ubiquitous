@@ -26,7 +26,7 @@ public:
     MainMenu(sf::RenderWindow* window, std::stack<State*>* states);
     virtual ~MainMenu();
     void updateButton();
-    void update();
+    void update(const float& dt);
     void renderButton(sf::RenderTarget& target);
-    virtual void render(sf::RenderTarget& target);
+    void render(sf::RenderTarget& target);
 };

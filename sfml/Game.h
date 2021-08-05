@@ -1,13 +1,7 @@
 #pragma once
-#include <stack>
-#include <SFML/Graphics.hpp>
-#include "State.h"
+
+#include "GameState.h"
 #include "MainMenu.h"
-#include <string.h>
-#include <fstream>
-#include <sstream>
-
-
 
 class Game {
 private:

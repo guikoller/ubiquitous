@@ -2,6 +2,12 @@
 
 #include <SFML/Graphics.hpp>
 #include <stack>
+#include <map>
+#include <vector>
+#include <string.h>
+#include <fstream>
+#include <sstream>
+
 
 class State {
 public:
@@ -27,7 +33,7 @@ public:
     virtual void updateMousePosition();
 
     virtual void updateKeybinds();
-    virtual void update();
+    virtual void update(const float& dt) = 0;
     virtual void render(sf::RenderTarget& target) = 0;
 };
 

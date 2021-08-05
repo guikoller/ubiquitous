@@ -20,7 +20,7 @@ void State::initFont() {
     }
 }
 
-void State::update() {
+void State::update(const float& dt) {
     this->updateKeybinds();
     this->updateMousePosition();
     system("clear");

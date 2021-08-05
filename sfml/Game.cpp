@@ -41,7 +41,6 @@ Game::~Game() {
 
 }
 
-
 //UPDATES////////////////////////////////////////////
 void Game::updateDT() {
     this->dt = this->dtClock.restart().asSeconds();
@@ -57,7 +56,7 @@ void Game::updateSFMLevents() {
 }
 void Game::updateState() {
     if (!this->states.empty()) {
-        this->states.top()->update();
+        this->states.top()->update(dt);
 
         if (this->states.top()->getQuit()) {
             this->states.top()->endState();
@@ -89,7 +88,6 @@ void Game::render() {
     if (!this->states.empty())
         this->states.top()->render(this->window);
 
-    //
     this->window.display();
 }
 
