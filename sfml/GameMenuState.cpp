@@ -1,52 +1,39 @@
-#include "MainMenu.h"
+#include "GameMenuState.h"
 
-void MainMenu::initButton() {
+void GameMenuState::initButton() {
 
-    this->btns["START"] = new Button(700, 550, 220, 80, "start", &this->font,
-        sf::Color(0, 0, 0, 230),
-        sf::Color(10, 10, 10, 200),
-        sf::Color(20, 20, 20, 150));
-    this->btns["START"]->setTextYPosition(570.f);
-
-    this->btns["PLACAR"] = new Button(700, 650, 220, 80, "leaderboard", &this->font,
-        sf::Color(0, 0, 0, 230),
-        sf::Color(10, 10, 10, 200),
-        sf::Color(20, 20, 20, 150));
-    this->btns["PLACAR"]->setTextYPosition(670.f);
-
-    this->btns["SAIR"] = new Button(700, 750, 220, 80, "quit", &this->font,
+    this->btns["NEW"] = new Button(300, 350, 220, 80, "new", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
-    this->btns["SAIR"]->setTextYPosition(767.f);
+    this->btns["LOAD"] = new Button(300, 450, 220, 80, "load game", &this->font,
+        sf::Color(0, 0, 0, 230),
+        sf::Color(10, 10, 10, 200),
+        sf::Color(20, 20, 20, 150));
+
+    this->btns["QUIT"] = new Button(300, 550, 220, 80, "<-", &this->font,
+        sf::Color(0, 0, 0, 230),
+        sf::Color(10, 10, 10, 200),
+        sf::Color(20, 20, 20, 150));
+
 }
 
-void MainMenu::initBackground() {
+void GameMenuState::initBackground() {
     if (!this->texture.loadFromFile("Resources/Images/bg.png"))
         printf("BACKGROUND NÃO CARREGADO\n");
 
     this->background.setTexture(this->texture);
     this->background.setScale(1.8f, 1.5f);
-    
+
 }
 
-
-void MainMenu::initTitle() {
-    this->title.setFont(this->font);
-    this->title.setString("Ubiquitous");
-    this->title.setCharacterSize(150);
-    //this->title.setColor(sf::Color(250, 250, 250, 250));
-    this->title.setPosition(sf::Vector2f(385, 150));
-}
-
-MainMenu::MainMenu(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
-    initTitle();
+GameMenuState::GameMenuState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
     initBackground();
     initButton();
 }
 
-MainMenu::~MainMenu()
+GameMenuState::~GameMenuState()
 {
     auto it = this->btns.begin();
 
@@ -58,24 +45,24 @@ MainMenu::~MainMenu()
 
 }
 
-void MainMenu::updateButton() {
+void GameMenuState::updateButton() {
     for (auto& it : this->btns)
     {
         it.second->update(this->mousePosView);
     }
 
     // SAIR DO JOGO
-    if (this->btns["SAIR"]->isPressed())
+    if (this->btns["QUIT"]->isPressed())
     {
         this->quit = true;
     }
-    else if (this->btns["START"]->isPressed())
+    else if (this->btns["NEW"]->isPressed())
     {
         // PUSH NOVO STATE
-        this->states->push(new GameMenuState(this->window, this->states));
+        this->states->push(new GameState(this->window, this->states));
         printf("Button  inicar precionado\n");
     }
-    else if (this->btns["PLACAR"]->isPressed())
+    else if (this->btns["LOAD"]->isPressed())
     {
         //this->states->push(new Pontuacao(this->window, this->states));
         printf("Button  placar precionado\n");
@@ -84,23 +71,22 @@ void MainMenu::updateButton() {
 
 }
 
-void MainMenu::update(const float& dt) {
+void GameMenuState::update(const float& dt) {
     this->updateKeybinds();
     this->updateMousePosition();
     std::cout << this->mousePosWindow.x << ", " << this->mousePosWindow.y << std::endl;
     updateButton();
 }
 
-void MainMenu::renderButton(sf::RenderTarget& target) {
+void GameMenuState::renderButton(sf::RenderTarget& target) {
     for (auto& it : this->btns)
     {
         it.second->render(target);
     }
 }
 
-void MainMenu::render(sf::RenderTarget& target) {
+void GameMenuState::render(sf::RenderTarget& target) {
     target.draw(this->background);
     renderButton(target);
-    target.draw(this->title);
 }
 

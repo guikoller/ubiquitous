@@ -8,9 +8,15 @@ GameState::~GameState() {
 
 }
 
+
+
+void GameState::updateKeybinds(const float& dt) {
+	this->checkQuit();
+}
 void GameState::update(const float& dt)
 {
-	//this->player.update();
+	updateKeybinds(dt);
+	this->player.update(dt);
 }
 
 void GameState::render(sf::RenderTarget& target){

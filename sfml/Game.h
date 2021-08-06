@@ -24,10 +24,15 @@ public:
 
     //Functions
     const sf::RenderWindow& getWindow() const;//retorna estado da janela (aberta ou fechada)
+    
+    
+    
     void update();
     void updateDT();
     void updateSFMLevents();
     void updateState();
+    
+    
     void render();
     void run();
 };

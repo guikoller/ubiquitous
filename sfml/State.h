@@ -1,5 +1,6 @@
 #pragma once
-
+#include <stdlib.h>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <stack>
 #include <map>
@@ -7,6 +8,8 @@
 #include <string.h>
 #include <fstream>
 #include <sstream>
+
+#include "Button.h"
 
 
 class State {
