@@ -1,15 +1,5 @@
 #pragma once
-#include <stdlib.h>
-#include <iostream>
-#include <SFML/Graphics.hpp>
-#include <stack>
-#include <map>
-#include <vector>
-#include <string.h>
-#include <fstream>
-#include <sstream>
-
-#include "Button.h"
+#include "MovementComponent.h"
 
 
 class State {

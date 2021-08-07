@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="States">
+      <UniqueIdentifier>{c34d583f-454c-4106-8a12-34ea7e7514fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{324b9d86-68a8-4fbe-9ef4-973989b7ce37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{fb826a6c-e9f9-4ba2-8245-09657b8134b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -22,60 +31,66 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMenuState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="NewGameMenuState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMenuState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="State.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Button.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="State.h">
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="GameMenuState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="NewGameMenuState.h">
-      <Filter>Header Files</Filter>
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
