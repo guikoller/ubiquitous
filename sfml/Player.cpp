@@ -5,15 +5,15 @@ void Player::initVariables() {
 
 }
 void Player::initComponents() {
-
+	createMovementComponent(400.f, 10.f,2.f);
 }
 
 //CONSTRUCTORS DESTRUCTORS
-Player::Player(float x, float y, sf::Texture* texture) {
+Player::Player(float x, float y, sf::Texture& texture) {
 	initVariables();
 	initComponents();
 	
-	createSprite(texture);
+	setTexture(texture);
 	setPosition(x, y);
 }
 Player::~Player() {

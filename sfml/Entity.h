@@ -1,20 +1,21 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+#include "MovementComponent.h"
+
 class Entity{
 private:
 	void initVariables();
 
 protected:
-	sf::Texture* texture;
-	sf::Sprite* sprite;
+	sf::Sprite sprite;
 	
-	float movementSpeed;
+	MovementComponent *movementComponent;
 public:
 	Entity();
 	virtual ~Entity();
 
 	//Components functions
-	void createSprite(sf::Texture* texture);
+	void setTexture(sf::Texture& texture);
+	void createMovementComponent(const float maxVelocity, const float acceleration, const float deceleration);
 
 
 	//Functions
