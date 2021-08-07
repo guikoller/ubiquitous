@@ -25,6 +25,9 @@ public:
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
 
+    //Resources
+    std::map<std::string, sf::Texture> textures;
+
     void initFont();
 public:
     State(sf::RenderWindow* window, std::stack<State*>* states);

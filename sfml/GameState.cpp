@@ -1,26 +1,42 @@
 #include "GameState.h"
 
-GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
-
+void GameState::initTextures() {
+	
+	try{
+		this->textures["xereque"].loadFromFile("Resources/sprites/xereque.png");
+	}
+	catch (const std::exception&){
+		printf("XEREQUE NÃO CARREGADO\n");
+	}	
 }
-
-GameState::~GameState() {
-
+void GameState::initPlayers() {
+	player = new Player(0,0,&textures["xereque"]);
 }
-
-
 
 void GameState::updateKeybinds(const float& dt) {
 	this->checkQuit();
 }
+
+
+
+GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
+	initTextures();
+	initPlayers();
+}
+
+GameState::~GameState() {
+	delete player;
+}
+
+
 void GameState::update(const float& dt)
 {
 	updateKeybinds(dt);
-	this->player.update(dt);
+	this->player->update(dt);
 }
 
 void GameState::render(sf::RenderTarget& target){
-	player.render(target);
+	player->render(target);
 }
 
 

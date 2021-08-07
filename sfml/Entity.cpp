@@ -26,6 +26,7 @@ void Entity::move(const float& dt, const float x, const float y) {
 }
 void Entity::createSprite(sf::Texture* texture) {
 	this->texture = texture;
+	this->sprite = new sf::Sprite(*this->texture);
 	this->sprite->setTexture(*this->texture);
 }
 
