@@ -1,25 +1,30 @@
-#include "GameMenuState.h"
+#include "NewGameMenuState.h"
 
-void GameMenuState::initButton() {
+void NewGameMenuState::initButton() {
 
-    this->btns["NEW"] = new Button(300, 350, 220, 80, "new", &this->font,
+    this->btns["NAME"] = new Button(500, 250, 220, 80, "...", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
-    this->btns["LOAD"] = new Button(300, 450, 220, 80, "load game", &this->font,
+    this->btns["QPLAYERS"] = new Button(500, 350, 220, 80, "1|2", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
-    this->btns["QUIT"] = new Button(300, 550, 220, 80, "<-", &this->font,
+    this->btns["PLAY"] = new Button(500, 450, 220, 80, "play", &this->font,
+        sf::Color(0, 0, 0, 230),
+        sf::Color(10, 10, 10, 200),
+        sf::Color(20, 20, 20, 150));
+
+    this->btns["QUIT_"] = new Button(500, 550, 220, 80, "<-", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
 }
 
-void GameMenuState::initBackground() {
+void NewGameMenuState::initBackground() {
     if (!this->texture.loadFromFile("Resources/Images/bg.png"))
         printf("BACKGROUND NÃO CARREGADO\n");
 
@@ -28,12 +33,12 @@ void GameMenuState::initBackground() {
 
 }
 
-GameMenuState::GameMenuState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
+NewGameMenuState::NewGameMenuState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
     initBackground();
     initButton();
 }
 
-GameMenuState::~GameMenuState()
+NewGameMenuState::~NewGameMenuState()
 {
     auto it = this->btns.begin();
 
@@ -45,47 +50,47 @@ GameMenuState::~GameMenuState()
 
 }
 
-void GameMenuState::updateButton() {
+void NewGameMenuState::updateButton() {
     for (auto& it : this->btns)
     {
         it.second->update(this->mousePosView);
     }
 
     // SAIR DO JOGO
-    if (this->btns["QUIT"]->isPressed())
+    if (this->btns["QUIT_"]->isPressed())
     {
         this->quit = true;
     }
-    else if (this->btns["NEW"]->isPressed())
+    else if (this->btns["PLAY"]->isPressed())
     {
         // PUSH NOVO STATE
-        this->states->push(new NewGameMenuState(this->window, this->states));
+        this->states->push(new GameState(this->window, this->states));
         printf("Button  inicar precionado\n");
     }
-    else if (this->btns["LOAD"]->isPressed())
+    /*else if (this->btns["LOAD"]->isPressed())
     {
         //this->states->push(new Pontuacao(this->window, this->states));
         printf("Button  placar precionado\n");
-    }
+    }*/
 
 
 }
 
-void GameMenuState::update(const float& dt) {
+void NewGameMenuState::update(const float& dt) {
     this->updateKeybinds();
     this->updateMousePosition();
     std::cout << this->mousePosWindow.x << ", " << this->mousePosWindow.y << std::endl;
     updateButton();
 }
 
-void GameMenuState::renderButton(sf::RenderTarget& target) {
+void NewGameMenuState::renderButton(sf::RenderTarget& target) {
     for (auto& it : this->btns)
     {
         it.second->render(target);
     }
 }
 
-void GameMenuState::render(sf::RenderTarget& target) {
+void NewGameMenuState::render(sf::RenderTarget& target) {
     target.draw(this->background);
     renderButton(target);
 }

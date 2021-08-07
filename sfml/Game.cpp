@@ -3,17 +3,11 @@
 void Game::initWindow() {
     std::ifstream ifs("Resources/Config/window.ini");
     
-    std::string title = "None";
+    std::string title = "Ubliquitous";
     sf::VideoMode window_bounds(1600, 900);
     unsigned framerate_limit = 120;
     bool vertical_sync_enabled = false;
-    
-    if (ifs.is_open()) {
-        std::getline(ifs, title);
-        ifs >> window_bounds.width >> window_bounds.height;
-        ifs >> framerate_limit;
-        ifs >> vertical_sync_enabled;
-    }
+  
     
     ifs.close();
 

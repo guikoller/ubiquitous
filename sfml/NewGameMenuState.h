@@ -1,10 +1,9 @@
 #pragma once
 
-#include "GameState.h"
-#include "NewGameMenuState.h"
+#include "GameMenuState.h"
 
 
-class GameMenuState : public State {
+class NewGameMenuState : public State {
 private:
     sf::Texture texture;
     sf::Sprite background;
@@ -16,8 +15,8 @@ private:
     void initButton();
     void initBackground();
 public:
-    GameMenuState(sf::RenderWindow* window, std::stack<State*>* states);
-    virtual ~GameMenuState();
+    NewGameMenuState(sf::RenderWindow* window, std::stack<State*>* states);
+    virtual ~NewGameMenuState();
     void updateButton();
     void update(const float& dt);
     void renderButton(sf::RenderTarget& target);
