@@ -64,6 +64,13 @@ void MovementComponent::decelerateY() {
 
 }
 
+const bool MovementComponent::idle()const {
+	if (velocity.x == 0)
+		return true;
+
+	return false;
+}
+
 void MovementComponent::move(const float &dt, const float dir_x, const float dir_y) {
 	//ACCELERATION
 	velocity.x += acceleration * dir_x;

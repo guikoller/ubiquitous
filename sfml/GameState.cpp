@@ -3,7 +3,7 @@
 void GameState::initTextures() {
 	
 	try{
-		this->textures["PLAYER_SHEET"].loadFromFile("Resources/sprites/merchant/idle.png");
+		this->textures["PLAYER_SHEET"].loadFromFile("Resources/sprites/pinkman.png");
 	}
 	catch (const std::exception&){
 		printf("PLAYER_SHEET COULD NOT LOAD\n");

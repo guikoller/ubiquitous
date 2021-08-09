@@ -1,6 +1,6 @@
 #include "Player.h"
 
-//IMITIALIZER FUNCTIONS
+//INITIALIZER FUNCTIONS
 void Player::initVariables() {
 
 }
@@ -18,7 +18,8 @@ Player::Player(float x, float y, sf::Texture& texture_sheet) {
 	createAnimationComponent(texture_sheet);
 	setSPriteScale(sf::Vector2f(3.f,3.f));
 
-	this->animationComponent->addAnimation("IDDLE", 10.f, 0, 0, 2, 0, 192, 192);
+	this->animationComponent->addAnimation("IDDLE", 8.f, 1, 0, 10, 0, 32, 32);
+	this->animationComponent->addAnimation("RUN", 5.f, 0, 1, 11, 1, 32, 32);
 	
 }
 Player::~Player() {
@@ -27,7 +28,15 @@ Player::~Player() {
 void Player::update(const float dt) {
 	this->movementComponent->update(dt);
 	
-	this->animationComponent->play("IDDLE", dt);
+
+	if (movementComponent->idle()){
+		this->animationComponent->play("IDDLE", dt, false);
+	}
+	else
+	{
+		this->animationComponent->play("RUN", dt, false);
+	}
+	
 }
 
 
