@@ -12,6 +12,8 @@
 
 #include "Button.h"
 
+enum movement_states { IDLE = 0, MOVING, MOVING_LEFT, MOVING_RIGHT, MOVING_UP, MOVING_DOWN };
+
 class MovementComponent{
 private:
 	sf::Sprite& sprite;
@@ -31,10 +33,7 @@ public:
 
 	const sf::Vector2f& getVelocity()const;
 
-	const bool idle()const;
-	const bool moving()const;
-	const bool movingLeft()const;
-	const bool movingRight()const;
+	const bool getState(const short unsigned state) const;
 
 	void move(const float& dt, const float dir_x, const float dir_y);
 	void update(const float& dt);

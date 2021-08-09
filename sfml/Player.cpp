@@ -29,11 +29,10 @@ void Player::update(const float dt) {
 	this->movementComponent->update(dt);
 	
 
-	if (movementComponent->idle()){
+	if (movementComponent->getState(IDLE)){
 		this->animationComponent->play("IDDLE", dt, false);
 	}
-	else
-	{
+	else if(movementComponent->getState(MOVING_RIGHT)){
 		this->animationComponent->play("RUN", dt, false);
 	}
 	
