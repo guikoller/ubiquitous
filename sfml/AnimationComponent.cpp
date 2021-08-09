@@ -17,7 +17,6 @@ AnimationComponent::~AnimationComponent() {
 //FUNCTIONS
 
 void AnimationComponent::addAnimation(const std::string key,
-	sf::Sprite& sprite, sf::Texture& texture_sheet,
 	float animation_timer,
 	int start_frame_x, int start_frame_y, int frame_x, int frame_y, int width, int height) 
 {

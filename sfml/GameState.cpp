@@ -3,14 +3,14 @@
 void GameState::initTextures() {
 	
 	try{
-		this->textures["xereque"].loadFromFile("Resources/sprites/xereque.png");
+		this->textures["PLAYER_SHEET"].loadFromFile("Resources/sprites/merchant/idle.png");
 	}
 	catch (const std::exception&){
-		printf("XEREQUE NÃO CARREGADO\n");
+		printf("PLAYER_SHEET COULD NOT LOAD\n");
 	}	
 }
 void GameState::initPlayers() {
-	player = new Player(0,0,textures["xereque"]);
+	player = new Player(0,0,textures["PLAYER_SHEET"]);
 }
 
 void GameState::updateKeybinds(const float& dt) {

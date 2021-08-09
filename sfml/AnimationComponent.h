@@ -39,7 +39,7 @@ private:
 		void play(const float& dt) {
 			
 			//UPDATE TIMER
-			timer = 10.f * dt;
+			timer += 100.f * dt;
 			if (timer >= animationTimer) {
 				//RESET TIMER
 				timer = 0.f;
@@ -56,7 +56,7 @@ private:
 		}
 		
 		void reset(){
-			currentRect.left = startRect.left
+			currentRect.left = startRect.left;
 		}
 	};
 
@@ -68,7 +68,7 @@ public:
 	AnimationComponent(sf::Sprite& sprite, sf::Texture& texture_sheet);
 	~AnimationComponent();
 
-	void addAnimation(const std::string key, sf::Sprite& sprite, sf::Texture& texture_sheet, float animation_timer, int start_frame_x, int start_frame_y, int frame_x, int frame_y, int width, int height);
+	void addAnimation(const std::string key, float animation_timer, int start_frame_x, int start_frame_y, int frame_x, int frame_y, int width, int height);
 
 	void play(const std::string key, const float& dt);
 };
