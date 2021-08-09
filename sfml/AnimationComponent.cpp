@@ -8,26 +8,27 @@ AnimationComponent::AnimationComponent(sf::Sprite& sprite, sf::Texture& texture_
 }
 
 AnimationComponent::~AnimationComponent() {
-
+	for (auto& i : animation) {
+		delete i.second;
+	}
 }
 
 
+//FUNCTIONS
 
-void addAnimation(const std::string key) {
-
+void AnimationComponent::addAnimation(const std::string key,
+	sf::Sprite& sprite, sf::Texture& texture_sheet,
+	float animation_timer,
+	int start_frame_x, int start_frame_y, int frame_x, int frame_y, int width, int height) 
+{
+	
+	this->animation[key] = new Animation(
+		this->sprite, this->textureSheet,
+		animation_timer,
+		start_frame_x, start_frame_y,frame_x, frame_y, width, height
+	);
 }
 
-
-void AnimationComponent::startAnimation(const std::string animation) {
-
-}
-void AnimationComponent::pauseAnimation(const std::string animation) {
-
-}
-void AnimationComponent::resetAnimation(const std::string animation) {
-
-}
-
-void AnimationComponent::update(const float& dt) {
-
+void AnimationComponent::play(const std::string key, const float& dt) {
+	animation[key]->play(dt);
 }

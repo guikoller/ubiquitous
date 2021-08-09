@@ -19,12 +19,14 @@ private:
 		sf::IntRect startRect;
 		sf::IntRect currentRect;
 		sf::IntRect endRect;
-		Animation(sf::Sprite& sprite,sf::Texture& texture_sheet,float animation_timer, int start_x, int start_y, int end_x, int end_y, int width, int height)
+		Animation(sf::Sprite& sprite,sf::Texture& texture_sheet,
+			float animation_timer, 
+			int start_frame_x, int start_frame_y, int frame_x, int frame_y, int width, int height)
 			: sprite(sprite), textureSheet(texture_sheet), animationTimer(animation_timer), width(width), height(height)
 		{
-			this->startRect = sf::IntRect(start_x, start_y, width, height);
+			this->startRect = sf::IntRect(start_frame_x * width, start_frame_y * height, width, height);
 			this->currentRect = this->startRect;
-			this->endRect = sf::IntRect(end_x, end_y, width, height);
+			this->endRect = sf::IntRect(frame_x * width, frame_y * height, width, height);
 			
 			this->sprite.setTexture(this->textureSheet, true);
 			this->sprite.setTextureRect(this->startRect);
@@ -34,7 +36,7 @@ private:
 		virtual ~Animation(){}
 
 		//Function
-		void update(const float& dt) {
+		void play(const float& dt) {
 			
 			//UPDATE TIMER
 			timer = 10.f * dt;
@@ -46,30 +48,28 @@ private:
 					this->currentRect.left += this->width;
 				}
 				else {
-					this->currentRect.left = startRect.left;
+					timer = 0.f;
+					reset();
 				}
 
 			}
 		}
-		void pause() {
+		
+		void reset(){
+			currentRect.left = startRect.left
 		}
-		void reset(){}
 	};
 
 	sf::Sprite& sprite;
 	sf::Texture& textureSheet;
-	std::map<std::string, Animation> animation;
+	std::map<std::string, Animation*> animation;
 
 public:
 	AnimationComponent(sf::Sprite& sprite, sf::Texture& texture_sheet);
 	~AnimationComponent();
 
-	void addAnimation(const std::string key);
+	void addAnimation(const std::string key, sf::Sprite& sprite, sf::Texture& texture_sheet, float animation_timer, int start_frame_x, int start_frame_y, int frame_x, int frame_y, int width, int height);
 
-	void startAnimation(const std::string animation);
-	void pauseAnimation(const std::string animation);
-	void resetAnimation(const std::string animation);
-
-	void update(const float& dt);
+	void play(const std::string key, const float& dt);
 };
 
