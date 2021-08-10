@@ -84,6 +84,9 @@
     <ClCompile Include="Portal.cpp">
       <Filter>Entities\Obstacles</Filter>
     </ClCompile>
+    <ClCompile Include="Bunny.cpp">
+      <Filter>Entities\Enimies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="Portal.h">
       <Filter>Entities\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Bunny.h">
+      <Filter>Entities\Enimies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
