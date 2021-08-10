@@ -3,6 +3,7 @@
 State::State(sf::RenderWindow* window, std::stack<State*>* states) {
     this->window = window;
     this->quit = false;
+    this->paused = false;
     initFont();
     this->states = states;
 }
@@ -23,7 +24,6 @@ void State::initFont() {
 void State::update(const float& dt) {
     this->updateKeybinds();
     this->updateMousePosition();
-    system("clear");
 }
 
 void State::checkQuit() {
@@ -31,6 +31,16 @@ void State::checkQuit() {
     {
         this->quit = true;
     }
+}
+
+void State::pauseState()
+{
+    this->paused = true;
+}
+
+void State::unpauseState()
+{
+    this->paused = false;
 }
 
 const bool& State::getQuit() const {

@@ -28,10 +28,19 @@ void GameState::updateInput(const float& dt) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		player->move(dt, 0.f, 1.f);
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+		if (!paused)		
+			pauseState();		
+		//else		
+			//unpauseState();
+		
+	}
+		
+
 }
 
 
-GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states) {
+GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states), pauseMenu(*window) {
 	initTextures();
 	initPlayers();
 }
@@ -43,13 +52,25 @@ GameState::~GameState() {
 
 void GameState::update(const float& dt)
 {
-	updateKeybinds(dt);
-	updateInput(dt);
-	this->player->update(dt);
+	if (!paused) {
+		updateKeybinds(dt);
+		updateInput(dt);
+		this->player->update(dt);
+	}
+	else {
+		pauseMenu.update();
+	}
+
+	
 }
 
 void GameState::render(sf::RenderTarget& target){
 	player->render(target);
+	if (paused) {
+		//PAUSE RENDER
+		pauseMenu.render(target);
+
+	}
 }
 
 

@@ -8,6 +8,7 @@ public:
 
     sf::RenderWindow* window;
     bool quit;
+    bool paused;
 
     sf::Font font;
 
@@ -24,8 +25,13 @@ public:
     virtual ~State();
 
     const bool& getQuit() const;
+    
     virtual void checkQuit();
+    
     virtual void endState();
+    void pauseState();
+    void unpauseState();
+
     virtual void updateMousePosition();
 
     virtual void updateKeybinds();
