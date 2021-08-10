@@ -23,11 +23,12 @@ void GameState::updateKeybinds(const float& dt) {
 
 void GameState::updateInput(const float& dt) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
-		if (!paused)
-			pauseState();
-		else		
-			unpauseState();
-
+		if (!paused) {
+			paused = true;
+		}		
+		else{
+			paused = false;
+		}
 	}
 }
 
@@ -56,6 +57,7 @@ void GameState::updateButtons() {
 	if (pauseMenu->isButtonPressed("QUIT"))
 	{
 		endState();
+		printf("clicou\n");
 	}
 }
 
@@ -69,18 +71,15 @@ void GameState::update(const float& dt)
 {
 	updateKeybinds(dt);
 	updateInput(dt);
-	
+
 	if (!paused) {
-		
 		updatePlayerInput(dt);
 		this->player->update(dt);
 	}
-	else {
-		pauseMenu->update(this->mousePosView);
+	if(paused) {
 		updateButtons();
-	}
-
-	
+		pauseMenu->update(this->mousePosView);
+	}	
 }
 
 void GameState::render(sf::RenderTarget& target){

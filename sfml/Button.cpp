@@ -44,6 +44,7 @@ void Button::update(const sf::Vector2f& mousePos) {
 
     if (this->shape.getGlobalBounds().contains(mousePos)) {
         //PASSOU MOUSE POR CIMA
+        printf("mouse por cima do botão\n");
         this->btn_state = BTN_HOVER;
         //APERTOU BOTÃO
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {

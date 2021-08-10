@@ -36,9 +36,9 @@ PauseMenu::PauseMenu(sf::RenderWindow& window, sf::Font& font) :font(font) {
 
 PauseMenu::~PauseMenu() {
 	
-	auto it = buttons.begin();
+	auto it = this->buttons.begin();
 
-	for (it = buttons.begin(); it != buttons.end(); ++it)
+	for (it = this->buttons.begin(); it != this->buttons.end(); ++it)
 	{
 		delete it->second;
 	}
@@ -73,11 +73,12 @@ void PauseMenu::addButton(
 }
 
 void PauseMenu::update(const sf::Vector2f& mousePos) {
-	for (auto& i : this->buttons) {
-		i.second->update(mousePos);
+	for (auto& it : this->buttons)
+	{
+		it.second->update(mousePos);
 	}
-	printf("atualianm");
 }
+
 void PauseMenu::render(sf::RenderTarget& target) {
 
 	target.draw(bg);
