@@ -1,6 +1,7 @@
 #pragma once
 #include "MovementComponent.h"
 #include "AnimationComponent.h"
+#include "HitboxComponent.h"
 
 class Entity{
 private:
@@ -11,6 +12,7 @@ protected:
 	
 	MovementComponent* movementComponent;
 	AnimationComponent* animationComponent;
+	HitboxComponent* hitboxComponent;
 public:
 	Entity();
 	virtual ~Entity();
@@ -19,6 +21,7 @@ public:
 	void setTexture(sf::Texture& texture);
 	void createMovementComponent(const float maxVelocity, const float acceleration, const float deceleration);
 	void createAnimationComponent(sf::Texture& texture_sheet);
+	void createHitboxComponent(sf::Sprite& sprite,float offset_x, float offset_y, float width, float height);
 
 
 	//Functions

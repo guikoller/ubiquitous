@@ -1,6 +1,8 @@
 #include "Entity.h"
 void Entity::initVariables() {
 	movementComponent = NULL;
+	animationComponent = NULL;
+	hitboxComponent = NULL;
 }
 
 Entity::Entity() {
@@ -24,6 +26,13 @@ void Entity::createAnimationComponent( sf::Texture& texture_sheet) {
 	this->animationComponent = new AnimationComponent(this->sprite, texture_sheet);
 }
 
+void Entity::createHitboxComponent(sf::Sprite& sprite,
+	float offset_x, float offset_y,
+	float width, float height)
+{
+	this->hitboxComponent = new HitboxComponent(sprite, offset_x, offset_y, width, height);
+}
+
 void Entity::setPosition(const float pos_x, const float pos_y) {
 	sprite.setPosition(pos_x, pos_y);	
 }
@@ -42,5 +51,7 @@ void Entity::update(const float& dt) {
 }
 
 void Entity::render(sf::RenderTarget& target) {
-	target.draw(sprite);		
+	target.draw(sprite);
+	if (this->hitboxComponent)
+		hitboxComponent->render(target);
 }
