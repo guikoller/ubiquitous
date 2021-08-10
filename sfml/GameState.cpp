@@ -18,6 +18,16 @@ void GameState::updateKeybinds(const float& dt) {
 }
 
 void GameState::updateInput(const float& dt) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+		if (!paused)
+			pauseState();
+		else		
+			unpauseState();
+
+	}
+}
+
+void GameState::updatePlayerInput(const float& dt) {
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		player->move(dt, -1.f, 0.f);
@@ -27,20 +37,12 @@ void GameState::updateInput(const float& dt) {
 		player->move(dt, 0.f, -1.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		player->move(dt, 0.f, 1.f);
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
-		if (!paused)		
-			pauseState();		
-		//else		
-			//unpauseState();
-		
-	}
-		
-
 }
 
 
-GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states), pauseMenu(*window) {
+GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states), 
+pauseMenu(*window, font) {
+	initFont();
 	initTextures();
 	initPlayers();
 }
@@ -52,9 +54,12 @@ GameState::~GameState() {
 
 void GameState::update(const float& dt)
 {
+	updateKeybinds(dt);
+	updateInput(dt);
+	
 	if (!paused) {
-		updateKeybinds(dt);
-		updateInput(dt);
+		
+		updatePlayerInput(dt);
 		this->player->update(dt);
 	}
 	else {
