@@ -25,6 +25,15 @@
     <Filter Include="GUI">
       <UniqueIdentifier>{696f1521-a81e-4158-be99-a3607bbdb892}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entities\Enimies">
+      <UniqueIdentifier>{0d669f78-8583-4b26-bbd4-a7ce39d26104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Obstacles">
+      <UniqueIdentifier>{4ce47aef-70f6-4cb7-b0a3-9128842a14d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Players">
+      <UniqueIdentifier>{f6fc8f76-900a-423c-9423-105f4e574d93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,9 +63,6 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Entities</Filter>
-    </ClCompile>
     <ClCompile Include="MovementComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -70,7 +76,13 @@
       <Filter>GUI</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Entities</Filter>
+      <Filter>Entities\Enimies</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Entities\Players</Filter>
+    </ClCompile>
+    <ClCompile Include="Portal.cpp">
+      <Filter>Entities\Obstacles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +113,6 @@
     <ClInclude Include="Entity.h">
       <Filter>Entities</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Entities</Filter>
-    </ClInclude>
     <ClInclude Include="MovementComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
@@ -117,7 +126,13 @@
       <Filter>GUI</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Entities</Filter>
+      <Filter>Entities\Enimies</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Entities\Players</Filter>
+    </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>Entities\Obstacles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

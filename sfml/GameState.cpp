@@ -4,14 +4,30 @@ void GameState::initTextures() {
 	
 	try{
 		this->textures["PLAYER_SHEET"].loadFromFile("Resources/sprites/pinkman.png");
+		//this->textures["ENEMY_SHEET"].loadFromFile("Resources/sprites/pinkman.png");
+		this->textures["PORTAL_SHEET"].loadFromFile("Resources/sprites/portal.png");
 	}
 	catch (const std::exception&){
 		printf("PLAYER_SHEET COULD NOT LOAD\n");
 	}	
 }
+
+
 void GameState::initPlayers() {
 	player = new Player(0,0,textures["PLAYER_SHEET"]);
 }
+
+
+void GameState::initEnemies() {
+	enemy = new Enemy(0, 0, textures["PLAYER_SHEET"]);
+	enemy->setPosition(300, 200);
+}
+
+void GameState::initObstacles() {
+	portal = new Portal(0, 0, textures["PORTAL_SHEET"]);
+	portal->setPosition(300, 500);
+}
+
 void GameState::initPauseMenu() {
 	pauseMenu = new PauseMenu(*window, font);
 	pauseMenu->addButton("QUIT", 800.f, "quit");
@@ -50,6 +66,8 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :Stat
 	initFont();
 	initTextures();
 	initPlayers();
+	initEnemies();
+	initObstacles();
 	initPauseMenu();
 }
 
@@ -63,6 +81,8 @@ void GameState::updateButtons() {
 
 GameState::~GameState() {
 	delete player;
+	delete enemy;
+	delete portal;
 	delete pauseMenu;
 }
 
@@ -75,6 +95,8 @@ void GameState::update(const float& dt)
 	if (!paused) {
 		updatePlayerInput(dt);
 		this->player->update(dt);
+		this->enemy->update(dt);
+		this->portal->update(dt);
 	}
 	if(paused) {
 		updateButtons();
@@ -84,6 +106,9 @@ void GameState::update(const float& dt)
 
 void GameState::render(sf::RenderTarget& target){
 	player->render(target);
+	enemy->render(target);
+	portal->render(target);
+	
 	if (paused) {
 		//PAUSE RENDER
 		pauseMenu->render(target);

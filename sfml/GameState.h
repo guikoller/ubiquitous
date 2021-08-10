@@ -2,16 +2,24 @@
 
 #include "State.h"
 #include "Player.h"
+#include "Enemy.h"
+#include "Portal.h"
 #include "PauseMenu.h"
 
 class GameState : public State{
 private:
 	PauseMenu *pauseMenu;
 	Player *player;
+	Enemy* enemy;
+	Portal* portal;
 
 	//Functions
 	void initTextures();
+	
 	void initPlayers();
+	void initEnemies();
+	void initObstacles();
+	
 	void initPauseMenu();
 public:
 	GameState(sf::RenderWindow* window, std::stack<State*>* states);

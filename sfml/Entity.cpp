@@ -1,53 +1,57 @@
-#include "Enemy.h"
-
-//INITIALIZER FUNCTIONS
-void Enemy::initVariables() {
-
-}
-void Enemy::initComponents() {
-
+#include "Entity.h"
+void Entity::initVariables() {
+	movementComponent = NULL;
+	animationComponent = NULL;
+	hitboxComponent = NULL;
 }
 
-//CONSTRUCTORS DESTRUCTORS
-Enemy::Enemy(float x, float y, sf::Texture& texture_sheet) {
+Entity::Entity() {
 	initVariables();
-
-	setPosition(x, y);
-
-	createHitboxComponent(this->sprite, 17, 14, 64, 80);
-	createMovementComponent(500.f, 10.f, 7.f);
-	createAnimationComponent(texture_sheet);
-
-	setSPriteScale(sf::Vector2f(3.f, 3.f));
-
-	this->animationComponent->addAnimation("IDDLE", 8.f, 1, 0, 10, 0, 32, 32);
-	this->animationComponent->addAnimation("RUN", 5.f, 0, 1, 11, 1, 32, 32);
-
-}
-Enemy::~Enemy() {
-
-}
-void Enemy::update(const float dt) {
-	this->movementComponent->update(dt);
-
-
-	if (movementComponent->getState(IDLE)) {
-		this->animationComponent->play("IDDLE", dt, false);
-	}
-	else if (movementComponent->getState(MOVING_RIGHT)) {
-		setSPriteScale(sf::Vector2f(3.f, 3.f));
-		this->sprite.setOrigin(0.f, 0.f);
-		this->animationComponent->play("RUN", dt, false);
-	}
-	else if (movementComponent->getState(MOVING_LEFT)) {
-		setSPriteScale(sf::Vector2f(-3.f, 3.f));
-		this->sprite.setOrigin(this->sprite.getGlobalBounds().width / 3.f, 0.f);
-		this->animationComponent->play("RUN", dt, false);
-	}
-
-
-	this->hitboxComponent->update();
-
 }
 
+Entity::~Entity() {
+	delete movementComponent;
+	delete animationComponent;
+}
 
+void Entity::setTexture(sf::Texture& texture) {
+	this->sprite.setTexture(texture);
+}
+
+void Entity::createMovementComponent(const float maxVelocity, const float acceleration, const float deceleration) {
+	this->movementComponent = new MovementComponent(this->sprite, maxVelocity, acceleration, deceleration);
+}
+
+void Entity::createAnimationComponent(sf::Texture& texture_sheet) {
+	this->animationComponent = new AnimationComponent(this->sprite, texture_sheet);
+}
+
+void Entity::createHitboxComponent(sf::Sprite& sprite,
+	float offset_x, float offset_y,
+	float width, float height)
+{
+	this->hitboxComponent = new HitboxComponent(sprite, offset_x, offset_y, width, height);
+}
+
+void Entity::setPosition(const float pos_x, const float pos_y) {
+	sprite.setPosition(pos_x, pos_y);
+}
+void Entity::setSPriteScale(sf::Vector2f scale) {
+	this->sprite.setScale(scale);
+}
+void Entity::move(const float& dt, const float x, const float y) {
+	if (movementComponent) {
+		this->movementComponent->move(dt, x, y);
+	}
+}
+
+
+void Entity::update(const float& dt) {
+
+}
+
+void Entity::render(sf::RenderTarget& target) {
+	target.draw(sprite);
+	if (this->hitboxComponent)
+		hitboxComponent->render(target);
+}
