@@ -6,12 +6,13 @@
 
 class GameState : public State{
 private:
-	PauseMenu pauseMenu;
+	PauseMenu *pauseMenu;
 	Player *player;
 
 	//Functions
 	void initTextures();
 	void initPlayers();
+	void initPauseMenu();
 public:
 	GameState(sf::RenderWindow* window, std::stack<State*>* states);
 	~GameState();
@@ -19,6 +20,7 @@ public:
 	void updateInput(const float& dt);
 	void updateKeybinds(const float& dt);
 	void updatePlayerInput(const float& dt);
+	void updateButtons();
 	void update(const float& dt);
 	void render(sf::RenderTarget& target);
 };

@@ -37,7 +37,7 @@ void Button::setTextYPosition(const float y){
     this->text.setPosition(sf::Vector2f(text.getPosition().x, y));
 }
 
-void Button::update(const sf::Vector2f mousePos) {
+void Button::update(const sf::Vector2f& mousePos) {
 
     // ESTADO PADRÃO DO BOTÃO
     this->btn_state = BTN_IDLE;

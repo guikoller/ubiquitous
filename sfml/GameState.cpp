@@ -12,6 +12,10 @@ void GameState::initTextures() {
 void GameState::initPlayers() {
 	player = new Player(0,0,textures["PLAYER_SHEET"]);
 }
+void GameState::initPauseMenu() {
+	pauseMenu = new PauseMenu(*window, font);
+	pauseMenu->addButton("QUIT", 800.f, "quit");
+}
 
 void GameState::updateKeybinds(const float& dt) {
 	this->checkQuit();
@@ -40,15 +44,24 @@ void GameState::updatePlayerInput(const float& dt) {
 }
 
 
-GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states), 
-pauseMenu(*window, font) {
+GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states)
+{
 	initFont();
 	initTextures();
 	initPlayers();
+	initPauseMenu();
+}
+
+void GameState::updateButtons() {
+	if (pauseMenu->isButtonPressed("QUIT"))
+	{
+		endState();
+	}
 }
 
 GameState::~GameState() {
 	delete player;
+	delete pauseMenu;
 }
 
 
@@ -63,7 +76,8 @@ void GameState::update(const float& dt)
 		this->player->update(dt);
 	}
 	else {
-		pauseMenu.update();
+		pauseMenu->update(this->mousePosView);
+		updateButtons();
 	}
 
 	
@@ -73,7 +87,7 @@ void GameState::render(sf::RenderTarget& target){
 	player->render(target);
 	if (paused) {
 		//PAUSE RENDER
-		pauseMenu.render(target);
+		pauseMenu->render(target);
 
 	}
 }

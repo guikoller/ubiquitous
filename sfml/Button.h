@@ -26,6 +26,6 @@ public:
 
     //funções
     void setTextYPosition(const float y);
-    void update(const sf::Vector2f mousePos);
+    void update(const sf::Vector2f& mousePos);
     void render(sf::RenderTarget& target);
 };
