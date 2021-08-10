@@ -87,6 +87,15 @@
     <ClCompile Include="Bunny.cpp">
       <Filter>Entities\Enimies</Filter>
     </ClCompile>
+    <ClCompile Include="Plant.cpp">
+      <Filter>Entities\Enimies</Filter>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>Entities\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Entities\Obstacles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -139,6 +148,15 @@
     </ClInclude>
     <ClInclude Include="Bunny.h">
       <Filter>Entities\Enimies</Filter>
+    </ClInclude>
+    <ClInclude Include="Plant.h">
+      <Filter>Entities\Enimies</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>Entities\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Entities\Obstacles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

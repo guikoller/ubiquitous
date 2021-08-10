@@ -6,6 +6,7 @@
 #include "Portal.h"
 #include "Bunny.h"
 #include "PauseMenu.h"
+#include "Flame.h"
 
 class GameState : public State{
 private:
@@ -14,6 +15,9 @@ private:
 	Enemy* enemy;
 	Bunny* bunny;
 	Portal* portal;
+	Flame* flame;
+
+
 
 	//Functions
 	void initTextures();
