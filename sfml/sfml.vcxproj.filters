@@ -34,6 +34,9 @@
     <Filter Include="Entities\Players">
       <UniqueIdentifier>{f6fc8f76-900a-423c-9423-105f4e574d93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lists">
+      <UniqueIdentifier>{d2229e06-88d7-4c93-8c4e-b14136e34326}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -95,6 +98,12 @@
     </ClCompile>
     <ClCompile Include="Box.cpp">
       <Filter>Entities\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityList.cpp">
+      <Filter>Lists</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,14 +167,17 @@
     <ClInclude Include="Box.h">
       <Filter>Entities\Obstacles</Filter>
     </ClInclude>
-    <ClInclude Include="List.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Element.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="StateManagement.h">
+    <ClInclude Include="StateManager.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="List.hpp">
+      <Filter>Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityList.h">
+      <Filter>Lists</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
