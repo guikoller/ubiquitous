@@ -164,5 +164,8 @@
     <ClInclude Include="Element.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="StateManagement.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
