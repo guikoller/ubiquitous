@@ -14,12 +14,12 @@ Box::Box(float x, float y, sf::Texture& texture_sheet) {
 
 	setPosition(x, y);
 
-	createHitboxComponent(this->sprite, 73, 45, 43, 128);
-	createAnimationComponent(texture_sheet);
+	createHitboxComponent(this->sprite, 0, 0, 64, 48);
+	
+	this->sprite.setTexture(texture_sheet);
 
 	setSPriteScale(sf::Vector2f(3.f, 3.f));
 
-	this->animationComponent->addAnimation("IDDLE", 12.f, 0, 0, 7, 0, 64, 64);
 
 }
 Box::~Box() {
@@ -27,7 +27,7 @@ Box::~Box() {
 }
 void Box::update(const float dt) {
 
-	this->animationComponent->play("IDDLE", dt, true);
+	
 
 	this->hitboxComponent->update();
 

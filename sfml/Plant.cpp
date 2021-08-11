@@ -14,13 +14,13 @@ Plant::Plant(float x, float y, sf::Texture& texture_sheet) {
 
 	setPosition(x, y);
 
-	createHitboxComponent(this->sprite, 20, 20, 64, 110);
+	createHitboxComponent(this->sprite, 25, 3, 50, 80);
 	createMovementComponent(300.f, 7.f, 4.f);
 	createAnimationComponent(texture_sheet);
 
-	setSPriteScale(sf::Vector2f(3.f, 3.f));
+	setSPriteScale(sf::Vector2f(2.f, 2.f));
 
-	this->animationComponent->addAnimation("IDDLE", 8.f, 0, 0, 7, 0, 34, 44);
+	this->animationComponent->addAnimation("IDDLE", 8.f, 0, 0, 7, 0, 44, 42);
 
 }
 Plant::~Plant() {

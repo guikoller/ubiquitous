@@ -5,8 +5,10 @@
 #include "Enemy.h"
 #include "Portal.h"
 #include "Bunny.h"
+#include "Plant.h"
 #include "PauseMenu.h"
 #include "Flame.h"
+#include "Box.h"
 
 class GameState : public State{
 private:
@@ -14,8 +16,10 @@ private:
 	Player *player;
 	Enemy* enemy;
 	Bunny* bunny;
+	Plant* plant;
 	Portal* portal;
 	Flame* flame;
+	Box* box;
 
 
 
