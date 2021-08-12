@@ -37,6 +37,9 @@
     <Filter Include="Lists">
       <UniqueIdentifier>{d2229e06-88d7-4c93-8c4e-b14136e34326}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entities\TileMap">
+      <UniqueIdentifier>{3288bbdc-b68e-4933-835b-79f05024514c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +107,12 @@
     </ClCompile>
     <ClCompile Include="StateManager.cpp">
       <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Entities\TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Tilemap.cpp">
+      <Filter>Entities\TileMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="EntityList.h">
       <Filter>Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Entities\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Tilemap.h">
+      <Filter>Entities\TileMap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
