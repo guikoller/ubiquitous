@@ -33,7 +33,12 @@ public:
 
 	const sf::Vector2f& getVelocity()const;
 
+
 	const bool getState(const short unsigned state) const;
+
+	void stopVelocity();
+	void stopVelocityX();
+	void stopVelocityY();
 
 	void move(const float& dt, const float dir_x, const float dir_y);
 	void update(const float& dt);
