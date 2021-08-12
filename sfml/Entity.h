@@ -7,13 +7,13 @@ class Entity{
 private:
 	void initVariables();
 
-protected:
+public:
 	sf::Sprite sprite;
 	
 	MovementComponent* movementComponent;
 	AnimationComponent* animationComponent;
 	HitboxComponent* hitboxComponent;
-public:
+
 	Entity();
 	virtual ~Entity();
 
@@ -23,6 +23,16 @@ public:
 	void createAnimationComponent(sf::Texture& texture_sheet);
 	void createHitboxComponent(sf::Sprite& sprite,float offset_x, float offset_y, float width, float height);
 
+	//Accersor
+	bool intersects(const sf::FloatRect& frect) {
+		if (hitboxComponent)
+			return hitboxComponent->intersects(frect);
+	}
+
+	const sf::FloatRect getGlobalBounds() const {
+		if(hitboxComponent)
+			return hitboxComponent->getGlobalBounds();
+	}
 
 	//Functions
 	virtual void setPosition(const float pos_x, const float pos_y);

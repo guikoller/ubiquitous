@@ -59,15 +59,14 @@ void GameState::updateInput(const float& dt) {
 }
 
 void GameState::updatePlayerInput(const float& dt) {
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		bunny->move(dt, -1.f, 0.f);
+		player->move(dt, -1.f, 0.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		bunny->move(dt, 1.f, 0.f);
+		player->move(dt, 1.f, 0.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-		bunny->move(dt, 0.f, -1.f);
+		player->move(dt, 0.f, -1.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-		bunny->move(dt, 0.f, 1.f);
+		player->move(dt, 0.f, 1.f);
 }
 
 
@@ -104,8 +103,66 @@ void GameState::updateButtons() {
 		printf("clicou\n");
 	}
 }
+
 void GameState::updateCollision() {
-	
+
+	sf::FloatRect playerBounds = player->hitboxComponent->getGlobalBounds();
+	sf::FloatRect flameBounds = this->flame->hitboxComponent->getGlobalBounds();
+
+	if (player->intersects(flame->getGlobalBounds()))
+	{
+
+		//baixo
+		if (playerBounds.top < flameBounds.top
+			&& playerBounds.top + playerBounds.height < flameBounds.top + flameBounds.height
+			&& playerBounds.left < flameBounds.left + flameBounds.width
+			&& playerBounds.left + playerBounds.width > flameBounds.left
+			)
+		{
+			
+			this->player->movementComponent->stopVelocityY();
+			this->player->hitboxComponent->setPosition(playerBounds.left, flameBounds.top -  playerBounds.height);
+			printf("colisão chão\n");
+		}
+		// cima
+		else if (playerBounds.top > flameBounds.top
+			&& playerBounds.top + playerBounds.height > flameBounds.top + flameBounds.height
+			&& playerBounds.left < flameBounds.left + flameBounds.width
+			&& playerBounds.left + playerBounds.width > flameBounds.left
+			)
+		{
+			this->player->movementComponent->stopVelocityX();
+			this->player->hitboxComponent->setPosition(flameBounds.left + flameBounds.width, playerBounds.top);
+			
+			printf("colisão topo\n");
+		}
+		
+		//direita
+		
+		if (playerBounds.left < flameBounds.left
+			&& playerBounds.left + playerBounds.width < flameBounds.left + flameBounds.width
+			&& playerBounds.top < flameBounds.top + flameBounds.height
+			&& playerBounds.top + playerBounds.height > flameBounds.top
+			)
+		{
+			this->player->movementComponent->stopVelocityX();
+			this->player->hitboxComponent->setPosition(flameBounds.left - playerBounds.width, playerBounds.top);
+				
+			printf("colisão direita\n");
+
+		}
+		//esquerda
+		else if (playerBounds.left > flameBounds.left
+			&& playerBounds.left + playerBounds.width > flameBounds.left + flameBounds.width
+			&& playerBounds.top < flameBounds.top + flameBounds.height
+			&& playerBounds.top + playerBounds.height > flameBounds.top 
+			)
+		{
+			this->player->movementComponent->stopVelocityX();
+			this->player->hitboxComponent->setPosition(flameBounds.left + playerBounds.width, playerBounds.top);
+			printf("colisão esquerda\n");
+		}
+	}
 }
 
 

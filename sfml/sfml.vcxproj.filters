@@ -40,6 +40,12 @@
     <Filter Include="Entities\TileMap">
       <UniqueIdentifier>{3288bbdc-b68e-4933-835b-79f05024514c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="States\GameStates">
+      <UniqueIdentifier>{ea168c3e-c572-4a55-adbc-28ec8894ab48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="States\MenuStates">
+      <UniqueIdentifier>{0f1ad52c-4c5a-4bdd-a8a6-5bdc05996234}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -52,18 +58,6 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="State.cpp">
-      <Filter>States</Filter>
-    </ClCompile>
-    <ClCompile Include="NewGameMenuState.cpp">
-      <Filter>States</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMenuState.cpp">
-      <Filter>States</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>States</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
       <Filter>States</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
@@ -114,6 +108,18 @@
     <ClCompile Include="Tilemap.cpp">
       <Filter>Entities\TileMap</Filter>
     </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>States\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMenuState.cpp">
+      <Filter>States\MenuStates</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>States\MenuStates</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGameMenuState.cpp">
+      <Filter>States\MenuStates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -123,18 +129,6 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMenuState.h">
-      <Filter>States</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>States</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>States</Filter>
-    </ClInclude>
-    <ClInclude Include="NewGameMenuState.h">
       <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
@@ -190,6 +184,18 @@
     </ClInclude>
     <ClInclude Include="Tilemap.h">
       <Filter>Entities\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>States\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGameMenuState.h">
+      <Filter>States\MenuStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMenuState.h">
+      <Filter>States\MenuStates</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>States\MenuStates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
