@@ -1,4 +1,4 @@
-#include "TileMap.h"
+/*#include "TileMap.h"
 
 void TileMap::initVariaveis() {
 	this->altura = 16;
@@ -12,7 +12,7 @@ void TileMap::initTextura() {
 }
 
 
-TileMap::TileMap(/* args */) {
+TileMap::TileMap() {
 }
 int TileMap::getAltura() {
 	return this->altura;
@@ -49,3 +49,5 @@ void TileMap::render(sf::RenderTarget& target) {
 
 	}
 }
+
+*/

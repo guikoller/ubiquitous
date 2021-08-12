@@ -13,6 +13,7 @@ public:
     const T getData() const{
         return data;
     }
+
 };
 
 // Linked List class
@@ -88,7 +89,7 @@ public:
         delete toDelete;
         return position;
     }
-
+    /*
     iterator removeElement(const T& value) {
         if (head == nullptr) {
             return;
@@ -99,7 +100,8 @@ public:
                 aux = aux->getNext();
             }
             
-            if (aux == nullptr) return;
+            if (aux == nullptr) 
+                return;
             
             if (aux* != nullptr) 
                 aux*.setPrev(aux->getPrev());
@@ -114,6 +116,7 @@ public:
             delete aux;
         }
     }
+    */
 private:
     Element<T>* head;
     Element<T>* tail;

@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <vector>
 #include "Tile.h"
 class TileMap
@@ -24,3 +24,4 @@ public:
     virtual void desenhaMapa() = 0;
     void render(sf::RenderTarget& target);
 };
+*/

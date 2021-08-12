@@ -5,7 +5,7 @@ EntityList::EntityList() {
 }
 
 EntityList::~EntityList() {
-    delete();
+    //delete();
 }
 
 void EntityList::add(Entity* ent) {
@@ -13,8 +13,8 @@ void EntityList::add(Entity* ent) {
 }
 
 void EntityList::remove(Entity* ent) {
-    if(ent!= nullptr)
-        entities.erase
+    //if(ent!= nullptr)
+     //   entities.erase
 }
 
 void EntityList::initEntities(State* state) {
