@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "List.hpp"
+#include "State.h"
 
 class EntityList{
 private:
@@ -16,7 +17,8 @@ public:
     void remove(Entity* ent);
 
     
-    //void initializeAll(Levels::Level* level);
+    void initEntities(State *state);
+    
     void destroy();
 
     iterator begin();

@@ -104,6 +104,9 @@ void GameState::updateButtons() {
 		printf("clicou\n");
 	}
 }
+void GameState::updateCollision() {
+	
+}
 
 
 
@@ -112,6 +115,7 @@ void GameState::update(const float& dt)
 {
 	updateKeybinds(dt);
 	updateInput(dt);
+	updateCollision();
 
 	if (!paused) {
 		updatePlayerInput(dt);

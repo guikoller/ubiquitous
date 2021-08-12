@@ -1,8 +1,6 @@
 // The Element class for our linked List
 
 //http://www2.lawrence.edu/fast/GREGGJ/CMSC270/linked/iterators.html
-
-
 template <typename T>
 class Element {
 public:
@@ -12,6 +10,9 @@ public:
     Element() : next(nullptr) {}
     Element(const T& item, Element<T>* ptr = nullptr) :
         data(item), next(ptr) {}
+    const T getData() const{
+        return data;
+    }
 };
 
 // Linked List class
@@ -86,6 +87,32 @@ public:
         if (toDelete == tail) tail = position.elementPtr;
         delete toDelete;
         return position;
+    }
+
+    iterator removeElement(const T& value) {
+        if (head == nullptr) {
+            return;
+        }
+        else {
+            Element<T>* aux = first;
+            while (aux != nullptr && aux->getData() != value) {
+                aux = aux->getNext();
+            }
+            
+            if (aux == nullptr) return;
+            
+            if (aux* != nullptr) 
+                aux*.setPrev(aux->getPrev());
+            
+            else 
+                tail = aux->getPrev();
+            
+            if (aux->getPrev() != nullptr) aux->getPrev()->setNext(aux->getNext());
+            
+            else head = aux->getNext();
+
+            delete aux;
+        }
     }
 private:
     Element<T>* head;

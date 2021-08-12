@@ -42,6 +42,7 @@ public:
 	void updateKeybinds(const float& dt);
 	void updatePlayerInput(const float& dt);
 	void updateButtons();
+	void updateCollision();
 	
 	void update(const float& dt);
 	void render(sf::RenderTarget& target);
