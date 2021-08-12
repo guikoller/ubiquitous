@@ -1,25 +1,16 @@
 #pragma once
 
 #include "State.h"
-#include "Player.h"
-#include "Enemy.h"
-#include "Portal.h"
-#include "Bunny.h"
-#include "Plant.h"
+#include "EntityList.h"
 #include "PauseMenu.h"
-#include "Flame.h"
-#include "Box.h"
+
 
 class GameState : public State{
 private:
 	PauseMenu *pauseMenu;
 	Player *player;
-	Enemy* enemy;
-	Bunny* bunny;
-	Plant* plant;
-	Portal* portal;
-	Flame* flame;
-	Box* box;
+	
+	EntityList entities;
 
 
 
@@ -27,8 +18,7 @@ private:
 	void initTextures();
 	
 	void initPlayers();
-	void initEnemies();
-	void initObstacles();
+	void initList();
 	
 	void initPauseMenu();
 public:
@@ -42,7 +32,7 @@ public:
 	void updateKeybinds(const float& dt);
 	void updatePlayerInput(const float& dt);
 	void updateButtons();
-	void updateCollision();
+	//void updateCollision();
 	
 	void update(const float& dt);
 	void render(sf::RenderTarget& target);

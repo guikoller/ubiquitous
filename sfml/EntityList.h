@@ -1,7 +1,17 @@
 #pragma once
-#include "Entity.h"
-#include "List.hpp"
-#include "State.h"
+
+#include "List.h"
+
+#include "Player.h"
+
+#include "Enemy.h"
+#include "Bunny.h"
+#include "Plant.h"
+
+#include "Portal.h"
+#include "Flame.h"
+#include "Box.h"
+
 
 class EntityList{
 private:
@@ -15,17 +25,17 @@ public:
 
     void add(Entity* ent);
     void remove(Entity* ent);
-
-    
-    void initEntities(State *state);
+    void move(const float& dt);
     
     void destroy();
 
-    iterator begin();
-    iterator end();
+    
 
     void update(const float& dt);
     void render(sf::RenderTarget& target);
+
+    iterator begin();
+    iterator end();
 };
 
 

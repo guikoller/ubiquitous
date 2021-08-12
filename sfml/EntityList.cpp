@@ -1,34 +1,26 @@
 #include "EntityList.h"
 
 EntityList::EntityList() {
-
+    
 }
 
 EntityList::~EntityList() {
-    //delete();
+    destroy();
 }
 
 void EntityList::add(Entity* ent) {
-
+    if (ent != nullptr)
+        entities.addElementBack(ent);
 }
 
 void EntityList::remove(Entity* ent) {
-    //if(ent!= nullptr)
-     //   entities.erase
-}
-
-void EntityList::initEntities(State* state) {
-
+    if (ent != nullptr)
+        entities.removeFirstMatchingElement(ent);
 }
 
 void EntityList::destroy() {
-    for (iterator i = entities.begin(); i != entities.end(); i++)
-    {
-        entities.erase(i);
-        delete (*i);        
-    }
+    
 }
-
 
 EntityList::iterator EntityList::begin() {
     return entities.begin();
@@ -38,16 +30,22 @@ EntityList::iterator EntityList::end() {
     return entities.end();
 }
 
+void EntityList::move(const float& dt) {
+    for (iterator i = entities.begin(); i != entities.end(); ++i) {
+        (*i)->move(dt, 10, 0);
+    }
+}
 
 void EntityList::update(const float& dt) {
-    for (iterator i = entities.begin(); i != entities.end(); i++)
-    {
+    move(dt);
+    for (iterator i = entities.begin(); i != entities.end(); ++i) {
         (*i)->update(dt);
     }
 }
+
 void EntityList::render(sf::RenderTarget& target) {
-    for (iterator i = entities.begin(); i != entities.end(); i++)
-    {
+    for (iterator i = entities.begin(); i != entities.end(); ++i) {
+
         (*i)->render(target);
     }
 }

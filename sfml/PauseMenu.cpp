@@ -81,8 +81,8 @@ void PauseMenu::update(const sf::Vector2f& mousePos) {
 
 void PauseMenu::render(sf::RenderTarget& target) {
 
-	target.draw(bg);
-	target.draw(container);
+	//target.draw(bg);
+	//target.draw(container);
 	target.draw(menuText);
 
 	for (auto& it : this->buttons)
