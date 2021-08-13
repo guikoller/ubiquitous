@@ -1,27 +1,27 @@
-/*#pragma once
+#pragma once
 #include <vector>
 #include "Tile.h"
 class TileMap
 {
 protected:
-    std::vector< std::vector <Tile*>> mapa;
-    sf::Texture textura;
-    int largura;//25
-    int altura;//15
+    std::vector< std::vector <Tile*>> map;
+    
+    std::map<std::string, sf::Texture> sprites;
+    sf::Texture texture;
+    
+    int height;
+    int width;
 
-    void initTextura();
-    void initVariaveis();
+    void initTextures();
+    
 public:
-    TileMap(/* args */);
+    TileMap();
     virtual ~TileMap();
 
     //Acessores
-    int getAltura();
-    int getLargura();
-    sf::Sprite getSprite(int x, int y);
-    bool getSolido(int x, int y);
+    
+    const bool isSolid(int x, int y) const;
 
-    virtual void desenhaMapa() = 0;
+    virtual void renderMap();
     void render(sf::RenderTarget& target);
 };
-*/

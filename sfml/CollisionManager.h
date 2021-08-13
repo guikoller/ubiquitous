@@ -10,7 +10,7 @@ public:
 	CollisionManager();
 	~CollisionManager();
 	void add(Entity* ent, EntityList* list);
-	void update();
+	void update(const float& dt);
 };
 
 

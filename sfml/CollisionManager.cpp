@@ -3,7 +3,6 @@
 CollisionManager::CollisionManager() {
 	this->ent = NULL;
 	this->list = NULL;
-
 }
 
 CollisionManager::~CollisionManager()
@@ -15,15 +14,15 @@ void CollisionManager::add(Entity* ent, EntityList* list) {
 	this->list = list;
 }
 
-void CollisionManager::update() {
+void CollisionManager::update(const float &dt) {
 	int length = list->length();
 	for (size_t i = 0; i < length; i++)
 	{
 		sf::FloatRect playerBounds = this->ent->hitboxComponent->getGlobalBounds();
 		sf::FloatRect entBounds = this->list->getElement(i)->getGlobalBounds();
-		if (ent->intersects(entBounds))
+		if (this->list->getElement(i)->intersects(ent->hitboxComponent->getNextPosition(ent->movementComponent->getVelocity() * dt)))
 		{
-			//baixo
+			//bottom
 			if (playerBounds.top < entBounds.top
 				&& playerBounds.top + playerBounds.height < entBounds.top + entBounds.height
 				&& playerBounds.left < entBounds.left + entBounds.width
@@ -34,7 +33,7 @@ void CollisionManager::update() {
 				this->ent->hitboxComponent->setPosition(playerBounds.left, entBounds.top - playerBounds.height);
 				printf("colisão chão\n");
 			}
-			// cima
+			//top
 			else if (playerBounds.top > entBounds.top
 				&& playerBounds.top + playerBounds.height > entBounds.top + entBounds.height
 				&& playerBounds.left < entBounds.left + entBounds.width
@@ -45,7 +44,7 @@ void CollisionManager::update() {
 				this->ent->hitboxComponent->setPosition(entBounds.left + entBounds.width, playerBounds.top);
 				printf("colisão topo\n");
 			}
-			//direita
+			//right
 			else if (playerBounds.left < entBounds.left
 				&& playerBounds.left + playerBounds.width < entBounds.left + entBounds.width
 				&& playerBounds.top < entBounds.top + entBounds.height
@@ -56,7 +55,7 @@ void CollisionManager::update() {
 				this->ent->hitboxComponent->setPosition(entBounds.left - playerBounds.width, playerBounds.top);
 				printf("colisão direita\n");
 			}
-			//esquerda
+			//left
 			else if (playerBounds.left > entBounds.left
 				&& playerBounds.left + playerBounds.width > entBounds.left + entBounds.width
 				&& playerBounds.top < entBounds.top + entBounds.height
