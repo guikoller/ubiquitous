@@ -3,7 +3,7 @@
 #include "State.h"
 #include "CollisionManager.h"
 #include "PauseMenu.h"
-#include "Tilemap.h"
+#include "MainTileMap.h"
 
 
 class GameState : public State{
@@ -15,7 +15,7 @@ private:
 
 	CollisionManager collisions;
 
-	TileMap map;
+	TileMap *map;
 
 	//Functions
 	void initTextures();

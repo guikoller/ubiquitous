@@ -74,6 +74,7 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :Stat
 	initList();
 	initPauseMenu();
 	collisions.add(player, &entities);
+	this->map = new MainTileMap();
 }
 
 
@@ -110,7 +111,7 @@ void GameState::update(const float& dt)
 
 		collisions.update(dt);
 
-		map.updateCollision(player, dt);
+		map->updateCollision(player, dt);
 	}
 	if(paused) {
 		updateButtons();
@@ -119,7 +120,7 @@ void GameState::update(const float& dt)
 }
 
 void GameState::render(sf::RenderTarget& target){
-	this->map.render(target);
+	this->map->render(target);
 	
 	entities.render(target);
 

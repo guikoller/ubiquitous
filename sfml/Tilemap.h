@@ -7,23 +7,23 @@ class TileMap
 protected:
     std::vector< std::vector <Tile*>> map;
     
-    std::map<std::string, sf::Texture> sprites;
     sf::Texture texture;
     
     int height;
     int width;
 
-    void initTextures();
+    virtual void initTextures();
     
 public:
     TileMap();
     virtual ~TileMap();
+    void deleteMap();
 
     //Acessores
     
     const bool isSolid(int x, int y) const;
 
-    virtual void createMap();
-    void updateCollision(Player *player,const float &dt);
+    virtual void createMap() = 0;
+    void updateCollision(Player* player, const float& dt);
     void render(sf::RenderTarget& target);
 };

@@ -1,5 +1,4 @@
 #pragma once
-
 #include "EntityList.h"
 
 class CollisionManager{
@@ -12,7 +11,3 @@ public:
 	void add(Entity* ent, EntityList* list);
 	void update(const float& dt);
 };
-
-
-
-

@@ -16,7 +16,7 @@ void CollisionManager::add(Entity* ent, EntityList* list) {
 
 void CollisionManager::update(const float &dt) {
 	int length = list->length();
-	for (size_t i = 0; i < length; i++)
+	for (int i = 0; i < length; i++)
 	{
 		sf::FloatRect playerBounds = this->ent->hitboxComponent->getGlobalBounds();
 		sf::FloatRect entBounds = this->list->getElement(i)->getGlobalBounds();

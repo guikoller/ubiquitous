@@ -46,6 +46,9 @@
     <Filter Include="States\MenuStates">
       <UniqueIdentifier>{0f1ad52c-4c5a-4bdd-a8a6-5bdc05996234}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Managers">
+      <UniqueIdentifier>{25502673-acf5-4579-96e2-ec93ee3a38ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -99,9 +102,6 @@
     <ClCompile Include="EntityList.cpp">
       <Filter>Lists</Filter>
     </ClCompile>
-    <ClCompile Include="StateManager.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Entities\TileMap</Filter>
     </ClCompile>
@@ -121,7 +121,16 @@
       <Filter>States\MenuStates</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="StateManager.cpp">
+      <Filter>Resource Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicManager.cpp">
+      <Filter>Resource Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="MainTileMap.cpp">
+      <Filter>Entities\TileMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +182,6 @@
     <ClInclude Include="Element.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="StateManager.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="List.h">
       <Filter>Lists</Filter>
     </ClInclude>
@@ -201,7 +207,16 @@
       <Filter>States\MenuStates</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicManager.h">
+      <Filter>Resource Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Resource Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="MainTileMap.h">
+      <Filter>Entities\TileMap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

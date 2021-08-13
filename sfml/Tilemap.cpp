@@ -14,6 +14,29 @@ void TileMap::initTextures() {
 	}	
 }
 
+TileMap::TileMap() {
+	initTextures();
+	createMap();
+}
+
+const bool TileMap::isSolid(int x, int y)const {
+	return this->map[x][y]->isSolid();
+}
+
+TileMap::~TileMap() {
+	deleteMap();
+}
+
+void TileMap::deleteMap()
+{
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
+			delete map[i][j];
+		}
+	}
+}
 
 void TileMap::createMap() {
 	this->map.clear();
@@ -35,7 +58,7 @@ void TileMap::createMap() {
 	{
 		for (int j = 0; j < height; j++)
 		{
-			
+
 			if (i == 0 && j == 0)//canto superior esquerdo
 			{
 				Linha.push_back(new Tile(i * 64.f, j * 64.f, this->texture, canto_s_e, true));
@@ -84,26 +107,6 @@ void TileMap::createMap() {
 	}
 
 }
-
-TileMap::TileMap() {
-	initTextures();
-	createMap();
-}
-
-const bool TileMap::isSolid(int x, int y)const {
-	return this->map[x][y]->isSolid();
-}
-
-TileMap::~TileMap() {
-	for (int i = 0; i < width; i++)
-	{
-		for (int j = 0; j < height; j++)
-		{
-			delete map[i][j];
-		}
-	}
-}
-
 
 void TileMap::updateCollision(Player *player, const float&dt) {
 	for (int i = 0; i < width; i++)
@@ -168,6 +171,7 @@ void TileMap::updateCollision(Player *player, const float&dt) {
 
 	}
 }
+
 
 void TileMap::render(sf::RenderTarget& target) {
 	for (int i = 0; i < width; i++)
