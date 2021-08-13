@@ -18,7 +18,7 @@ void GameState::initTextures() {
 
 
 void GameState::initPlayers() {
-	player = new Player(0,0,textures["PLAYER_SHEET"]);
+	player = new Player(100,100,textures["PLAYER_SHEET"]);
 }
 
 
@@ -109,6 +109,8 @@ void GameState::update(const float& dt)
 		entities.update(dt);
 
 		collisions.update(dt);
+
+		map.updateCollision(player, dt);
 	}
 	if(paused) {
 		updateButtons();

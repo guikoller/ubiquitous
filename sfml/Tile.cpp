@@ -17,6 +17,8 @@ Tile::Tile(float x, float y, sf::Texture& texture_sheet, sf::IntRect texture_rec
 	setPosition(x, y);
 
 	createHitboxComponent(this->sprite, 0, 0, 64, 64);
+	if (!solid)
+		hitboxComponent->setColor(sf::Color(255,0,0,100));
 
 	this->sprite.setTexture(texture_sheet);
 	this->sprite.setTextureRect(texture_rect);

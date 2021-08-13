@@ -49,6 +49,9 @@ void HitboxComponent::setPosition(const float x, const float y){
 	this->sprite.setPosition(x - this->offsetX, y - this->offsetY);
 }
 
+void HitboxComponent::setColor(sf::Color color) {
+	this->hitbox.setOutlineColor(color);
+}
 
 bool HitboxComponent::intersects(const sf::FloatRect& frect){
 	return this->hitbox.getGlobalBounds().intersects(frect);

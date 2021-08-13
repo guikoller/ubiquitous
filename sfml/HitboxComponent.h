@@ -26,6 +26,8 @@ public:
 	void setPosition(const sf::Vector2f& position);
 	void setPosition(const float x, const float y);
 
+	void setColor(sf::Color color);
+
 	
 	bool intersects(const sf::FloatRect& frect);
 

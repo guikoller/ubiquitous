@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Tile.h"
+#include "Player.h"
 class TileMap
 {
 protected:
@@ -22,6 +23,7 @@ public:
     
     const bool isSolid(int x, int y) const;
 
-    virtual void renderMap();
+    virtual void createMap();
+    void updateCollision(Player *player,const float &dt);
     void render(sf::RenderTarget& target);
 };

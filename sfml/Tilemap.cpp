@@ -15,7 +15,7 @@ void TileMap::initTextures() {
 }
 
 
-void TileMap::renderMap() {
+void TileMap::createMap() {
 	this->map.clear();
 
 	sf::IntRect tijolo = sf::IntRect(32, 256, 32, 32);
@@ -74,7 +74,7 @@ void TileMap::renderMap() {
 			}
 			else //tijolo parede
 			{
-				Linha.push_back(new Tile(i * 64.f, j * 64.f, this->texture, tijolo, true));
+				Linha.push_back(new Tile(i * 64.f, j * 64.f, this->texture, tijolo, false));
 			}
 
 
@@ -87,7 +87,7 @@ void TileMap::renderMap() {
 
 TileMap::TileMap() {
 	initTextures();
-	renderMap();
+	createMap();
 }
 
 const bool TileMap::isSolid(int x, int y)const {
@@ -105,7 +105,69 @@ TileMap::~TileMap() {
 }
 
 
+void TileMap::updateCollision(Player *player, const float&dt) {
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
+			if (map[i][j]->isSolid()) {
 
+				sf::FloatRect playerBounds = player->hitboxComponent->getGlobalBounds();
+				sf::FloatRect tileBounds = this->map[i][j]->getGlobalBounds();
+				
+				if (this->map[i][j]->intersects(player->hitboxComponent->getNextPosition(player->movementComponent->getVelocity() * dt)))
+				{
+					//bottom
+					if (playerBounds.top < tileBounds.top
+						&& playerBounds.top + playerBounds.height < tileBounds.top + tileBounds.height
+						&& playerBounds.left < tileBounds.left + tileBounds.width
+						&& playerBounds.left + playerBounds.width > tileBounds.left
+						)
+					{
+						player->movementComponent->stopVelocityY();
+						player->hitboxComponent->setPosition(playerBounds.left, tileBounds.top - playerBounds.height);
+						printf("colisão chão\n");
+					}
+					//top
+					else if (playerBounds.top > tileBounds.top
+						&& playerBounds.top + playerBounds.height > tileBounds.top + tileBounds.height
+						&& playerBounds.left < tileBounds.left + tileBounds.width
+						&& playerBounds.left + playerBounds.width > tileBounds.left
+						)
+					{
+						player->movementComponent->stopVelocityX();
+						player->hitboxComponent->setPosition(tileBounds.left + tileBounds.width, playerBounds.top);
+						printf("colisão topo\n");
+					}
+					//right
+					else if (playerBounds.left < tileBounds.left
+						&& playerBounds.left + playerBounds.width < tileBounds.left + tileBounds.width
+						&& playerBounds.top < tileBounds.top + tileBounds.height
+						&& playerBounds.top + playerBounds.height > tileBounds.top
+						)
+					{
+						player->movementComponent->stopVelocityX();
+						player->hitboxComponent->setPosition(tileBounds.left - playerBounds.width, playerBounds.top);
+						printf("colisão direita\n");
+					}
+					//left
+					else if (playerBounds.left > tileBounds.left
+						&& playerBounds.left + playerBounds.width > tileBounds.left + tileBounds.width
+						&& playerBounds.top < tileBounds.top + tileBounds.height
+						&& playerBounds.top + playerBounds.height > tileBounds.top
+						)
+					{
+						player->movementComponent->stopVelocityX();
+						player->hitboxComponent->setPosition(tileBounds.left + tileBounds.width, playerBounds.top);
+						printf("colisão esquerda\n");
+					}
+				}
+			}
+
+		}
+
+	}
+}
 
 void TileMap::render(sf::RenderTarget& target) {
 	for (int i = 0; i < width; i++)
