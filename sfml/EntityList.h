@@ -1,6 +1,6 @@
 #pragma once
 
-#include "List.h"
+//#include "List.h"
 
 #include "Player.h"
 
@@ -15,27 +15,29 @@
 
 class EntityList{
 private:
-	List<Entity*> entities;
+	std::vector<Entity*> entities;
 
 public:
 	EntityList();
 	~EntityList();
 
-    using iterator = List<Entity*>::iterator;
+    
 
     void add(Entity* ent);
     void remove(Entity* ent);
-    void move(const float& dt);
+    
+    
     
     void destroy();
 
+    const int length()const;
     
+    Entity* getElement(const int pos);
 
     void update(const float& dt);
     void render(sf::RenderTarget& target);
 
-    iterator begin();
-    iterator end();
+    
 };
 
 

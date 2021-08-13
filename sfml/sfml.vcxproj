@@ -150,6 +150,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Bunny.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityList.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="Bunny.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />

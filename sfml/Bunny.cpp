@@ -27,7 +27,7 @@ Bunny::Bunny(float x, float y, sf::Texture& texture_sheet) {
 Bunny::~Bunny() {
 
 }
-void Bunny::update(const float dt) {
+void Bunny::update(const float& dt) {
 	this->movementComponent->update(dt);
 
 

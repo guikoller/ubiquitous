@@ -45,11 +45,6 @@ void Entity::move(const float& dt, const float x, const float y) {
 	}
 }
 
-
-void Entity::update(const float& dt) {
-
-}
-
 void Entity::render(sf::RenderTarget& target) {
 	target.draw(sprite);
 	if (this->hitboxComponent)

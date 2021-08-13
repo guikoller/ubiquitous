@@ -27,7 +27,7 @@ Player::Player(float x, float y, sf::Texture& texture_sheet) {
 Player::~Player() {
 
 }
-void Player::update(const float dt) {
+void Player::update(const float& dt) {
 	this->movementComponent->update(dt);
 	
 

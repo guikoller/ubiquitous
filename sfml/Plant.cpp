@@ -26,7 +26,7 @@ Plant::Plant(float x, float y, sf::Texture& texture_sheet) {
 Plant::~Plant() {
 
 }
-void Plant::update(const float dt) {
+void Plant::update(const float& dt) {
 	this->movementComponent->update(dt);
 
 

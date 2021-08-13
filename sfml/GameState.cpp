@@ -165,7 +165,11 @@ void GameState::update(const float& dt)
 	if (!paused) {
 		updatePlayerInput(dt);
 		player->update(dt);
-		entities.update(dt);
+		for (int i = 0; i < entities.length(); i++)
+		{
+			entities.getElement(i)->update(dt);
+			printf("aaa");
+		}
 	}
 	if(paused) {
 		updateButtons();
@@ -175,7 +179,10 @@ void GameState::update(const float& dt)
 
 void GameState::render(sf::RenderTarget& target){
 	
-	entities.render(target);
+	for (int i = 0; i < entities.length(); i++)
+	{
+		entities.getElement(i)->render(target);
+	}
 
 	player->render(target);
 	

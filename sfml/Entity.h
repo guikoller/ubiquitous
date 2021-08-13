@@ -39,7 +39,7 @@ public:
 	virtual void setSPriteScale(sf::Vector2f scale);
 	virtual void move(const float& dt, const float x, const float y);
 	
-	virtual void update(const float& dt);
+	virtual void update(const float& dt) = 0;
 	virtual void render(sf::RenderTarget& target);
 };
 

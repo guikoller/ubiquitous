@@ -25,7 +25,7 @@ Flame::Flame(float x, float y, sf::Texture& texture_sheet) {
 Flame::~Flame() {
 
 }
-void Flame::update(const float dt) {
+void Flame::update(const float& dt) {
 
 	this->animationComponent->play("IDDLE", dt, true);
 

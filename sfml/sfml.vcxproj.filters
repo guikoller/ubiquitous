@@ -120,6 +120,9 @@
     <ClCompile Include="NewGameMenuState.cpp">
       <Filter>States\MenuStates</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>States\MenuStates</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

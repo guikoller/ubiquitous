@@ -25,7 +25,7 @@ Portal::Portal(float x, float y, sf::Texture& texture_sheet) {
 Portal::~Portal() {
 
 }
-void Portal::update(const float dt) {
+void Portal::update(const float& dt) {
 	
 	this->animationComponent->play("IDDLE", dt, true);
 

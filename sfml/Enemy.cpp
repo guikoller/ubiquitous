@@ -27,7 +27,7 @@ Enemy::Enemy(float x, float y, sf::Texture& texture_sheet) {
 Enemy::~Enemy() {
 
 }
-void Enemy::update(const float dt) {
+void Enemy::update(const float& dt) {
 	this->movementComponent->update(dt);
 
 

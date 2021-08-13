@@ -25,7 +25,7 @@ Box::Box(float x, float y, sf::Texture& texture_sheet) {
 Box::~Box() {
 
 }
-void Box::update(const float dt) {
+void Box::update(const float& dt) {
 
 	
 

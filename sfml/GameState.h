@@ -1,7 +1,7 @@
 #pragma once
 
 #include "State.h"
-#include "EntityList.h"
+#include "CollisionManager.h"
 #include "PauseMenu.h"
 
 

@@ -1,13 +1,13 @@
 #pragma once
 #include "Entity.h"
 
-class Flame : public Entity {
+class Flame : virtual public Entity {
 private:
 	void initVariables();
 	void initComponents();
 public:
 	Flame(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Flame();
-	void update(const float dt);
+	void update(const float& dt);
 };
 
