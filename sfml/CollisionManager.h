@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 
 #include "EntityList.h"
 
@@ -7,10 +7,11 @@ private:
 	Entity *ent;
 	EntityList *list;
 public:
-	CollisionManager(Entity* ent, EntityList* list);
+	CollisionManager();
 	~CollisionManager();
+	void add(Entity* ent, EntityList* list);
 	void update();
-};*/
+};
 
 
 

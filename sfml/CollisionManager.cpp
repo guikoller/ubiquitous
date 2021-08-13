@@ -1,15 +1,19 @@
-/*#include "CollisionManager.h"
+#include "CollisionManager.h"
 
-CollisionManager::CollisionManager(Entity* ent, EntityList* list){
-	this->ent = ent;
-	this->list = list;
+CollisionManager::CollisionManager() {
+	this->ent = NULL;
+	this->list = NULL;
+
 }
 
 CollisionManager::~CollisionManager()
 {
 }
 
-
+void CollisionManager::add(Entity* ent, EntityList* list) {
+	this->ent = ent;
+	this->list = list;
+}
 
 void CollisionManager::update() {
 	int length = list->length();
@@ -17,10 +21,8 @@ void CollisionManager::update() {
 	{
 		sf::FloatRect playerBounds = this->ent->hitboxComponent->getGlobalBounds();
 		sf::FloatRect entBounds = this->list->getElement(i)->getGlobalBounds();
-
 		if (ent->intersects(entBounds))
 		{
-
 			//baixo
 			if (playerBounds.top < entBounds.top
 				&& playerBounds.top + playerBounds.height < entBounds.top + entBounds.height
@@ -28,7 +30,6 @@ void CollisionManager::update() {
 				&& playerBounds.left + playerBounds.width > entBounds.left
 				)
 			{
-
 				this->ent->movementComponent->stopVelocityY();
 				this->ent->hitboxComponent->setPosition(playerBounds.left, entBounds.top - playerBounds.height);
 				printf("colisão chão\n");
@@ -42,13 +43,10 @@ void CollisionManager::update() {
 			{
 				this->ent->movementComponent->stopVelocityX();
 				this->ent->hitboxComponent->setPosition(entBounds.left + entBounds.width, playerBounds.top);
-
 				printf("colisão topo\n");
 			}
-
 			//direita
-
-			if (playerBounds.left < entBounds.left
+			else if (playerBounds.left < entBounds.left
 				&& playerBounds.left + playerBounds.width < entBounds.left + entBounds.width
 				&& playerBounds.top < entBounds.top + entBounds.height
 				&& playerBounds.top + playerBounds.height > entBounds.top
@@ -56,9 +54,7 @@ void CollisionManager::update() {
 			{
 				this->ent->movementComponent->stopVelocityX();
 				this->ent->hitboxComponent->setPosition(entBounds.left - playerBounds.width, playerBounds.top);
-
 				printf("colisão direita\n");
-
 			}
 			//esquerda
 			else if (playerBounds.left > entBounds.left
@@ -68,12 +64,9 @@ void CollisionManager::update() {
 				)
 			{
 				this->ent->movementComponent->stopVelocityX();
-				this->ent->hitboxComponent->setPosition(entBounds.left + playerBounds.width, playerBounds.top);
+				this->ent->hitboxComponent->setPosition(entBounds.left + entBounds.width, playerBounds.top);
 				printf("colisão esquerda\n");
 			}
 		}
-
-
-	}	
-}*/
-
+	}
+}

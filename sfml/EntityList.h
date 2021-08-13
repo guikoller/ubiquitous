@@ -13,32 +13,29 @@
 #include "Box.h"
 
 
-class EntityList{
+class EntityList {
 private:
-	std::vector<Entity*> entities;
+    std::vector<Entity*> entities;
 
 public:
-	EntityList();
-	~EntityList();
+    EntityList();
+    ~EntityList();
 
-    
+
 
     void add(Entity* ent);
     void remove(Entity* ent);
-    
-    
-    
+
+
+
     void destroy();
 
     const int length()const;
-    
+
     Entity* getElement(const int pos);
 
     void update(const float& dt);
     void render(sf::RenderTarget& target);
 
-    
+
 };
-
-
-

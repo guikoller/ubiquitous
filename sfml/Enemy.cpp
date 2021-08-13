@@ -48,7 +48,6 @@ void Enemy::update(const float& dt) {
 
 	this->hitboxComponent->update();
 	
-	printf("ATUALIZANDO INIMIGO");
 
 }
 

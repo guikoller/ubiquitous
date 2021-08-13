@@ -39,14 +39,13 @@ void Button::setTextYPosition(const float y){
 
 void Button::update(const sf::Vector2f& mousePos) {
 
-    // ESTADO PADRÃO DO BOTÃO
+    // ESTADO PADRï¿½O DO BOTï¿½O
     this->btn_state = BTN_IDLE;
 
     if (this->shape.getGlobalBounds().contains(mousePos)) {
         //PASSOU MOUSE POR CIMA
-        printf("mouse por cima do botão\n");
         this->btn_state = BTN_HOVER;
-        //APERTOU BOTÃO
+        //APERTOU BOTï¿½O
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
             this->btn_state = BTN_PRESSED;
         }
@@ -63,7 +62,7 @@ void Button::update(const sf::Vector2f& mousePos) {
         this->shape.setFillColor(this->activeColor);
         break;
     default:
-        this->shape.setFillColor(sf::Color::Red);//não é pra entrar aqui não
+        this->shape.setFillColor(sf::Color::Red);//nï¿½o ï¿½ pra entrar aqui nï¿½o
         break;
     }
 

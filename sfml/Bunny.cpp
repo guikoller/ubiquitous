@@ -32,7 +32,7 @@ void Bunny::update(const float& dt) {
 
 
 	if (movementComponent->getState(IDLE)) {
-		this->animationComponent->play("IDDLE", dt, false);
+		this->animationComponent->play("IDDLE", dt, true);
 	}
 	else if (movementComponent->getState(MOVING_LEFT)) {
 		setSPriteScale(sf::Vector2f(3.f, 3.f));

@@ -67,11 +67,13 @@ void GameState::updatePlayerInput(const float& dt) {
 
 GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states)
 {
+	
 	initFont();
 	initTextures();
 	initPlayers();
 	initList();
 	initPauseMenu();
+	collisions.add(player, &entities);
 }
 
 
@@ -164,12 +166,12 @@ void GameState::update(const float& dt)
 
 	if (!paused) {
 		updatePlayerInput(dt);
+		
 		player->update(dt);
-		for (int i = 0; i < entities.length(); i++)
-		{
-			entities.getElement(i)->update(dt);
-			printf("aaa");
-		}
+		
+		entities.update(dt);
+
+		collisions.update();
 	}
 	if(paused) {
 		updateButtons();
@@ -179,10 +181,8 @@ void GameState::update(const float& dt)
 
 void GameState::render(sf::RenderTarget& target){
 	
-	for (int i = 0; i < entities.length(); i++)
-	{
-		entities.getElement(i)->render(target);
-	}
+	
+	entities.render(target);
 
 	player->render(target);
 	

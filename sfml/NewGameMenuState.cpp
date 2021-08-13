@@ -26,7 +26,7 @@ void NewGameMenuState::initButton() {
 
 void NewGameMenuState::initBackground() {
     if (!this->texture.loadFromFile("Resources/Images/bg.png"))
-        printf("BACKGROUND NÃO CARREGADO\n");
+        printf("BACKGROUND Nï¿½O CARREGADO\n");
 
     this->background.setTexture(this->texture);
     this->background.setScale(1.8f, 1.5f);
@@ -65,7 +65,7 @@ void NewGameMenuState::updateButton() {
     {
         // PUSH NOVO STATE
         this->states->push(new GameState(this->window, this->states));
-        printf("Button  inicar precionado\n");
+
     }
     /*else if (this->btns["LOAD"]->isPressed())
     {

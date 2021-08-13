@@ -1,7 +1,7 @@
 #include "EntityList.h"
 
 EntityList::EntityList() {
-    
+
 }
 
 EntityList::~EntityList() {
@@ -13,7 +13,7 @@ void EntityList::add(Entity* ent) {
 }
 
 void EntityList::remove(Entity* ent) {
-    
+
 }
 
 void EntityList::destroy() {
@@ -24,7 +24,7 @@ void EntityList::destroy() {
 
 
 void EntityList::update(const float& dt) {
-    
+
     for (auto& it : entities) {
         it->update(dt);
     }

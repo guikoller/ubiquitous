@@ -24,7 +24,7 @@ void MainMenu::initButton() {
 
 void MainMenu::initBackground() {
     if (!this->texture.loadFromFile("Resources/Images/bg.png"))
-        printf("BACKGROUND NÃO CARREGADO\n");
+        printf("BACKGROUND Nï¿½O CARREGADO\n");
 
     this->background.setTexture(this->texture);
     this->background.setScale(1.8f, 1.5f);
@@ -73,12 +73,12 @@ void MainMenu::updateButton() {
     {
         // PUSH NOVO STATE
         this->states->push(new GameMenuState(this->window, this->states));
-        printf("Button  inicar precionado\n");
+
     }
     else if (this->btns["PLACAR"]->isPressed())
     {
         //this->states->push(new Pontuacao(this->window, this->states));
-        printf("Button  placar precionado\n");
+
     }
 
 

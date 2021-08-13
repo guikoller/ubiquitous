@@ -12,7 +12,7 @@ private:
 	
 	EntityList entities;
 
-
+	CollisionManager collisions;
 
 	//Functions
 	void initTextures();
