@@ -34,6 +34,7 @@ void GameState::initTextures() {
 
 void GameState::initPlayers() {
 	player = new Player(100,100,textures["PLAYER_SHEET"]);
+	player2 = new Player(2000, 2000, textures["PLAYER_SHEET"]);
 }
 
 void GameState::initList() {
@@ -76,7 +77,8 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :Stat
 	initLife();
 
 
-	collisions.add(player, &entities);
+	collisionsP1.add(player, &entities);
+	collisionsP2.add(player2, &entities);
 	this->map = new MainTileMap();
 }
 
@@ -114,6 +116,18 @@ void GameState::updatePlayerInput(const float& dt) {
 		player->move(dt, 0.f, -1.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		player->move(dt, 0.f, 1.f);
+
+
+	if (secondPlayer) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			player2->move(dt, -1.f, 0.f);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			player2->move(dt, 1.f, 0.f);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			player2->move(dt, 0.f, -1.f);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			player2->move(dt, 0.f, 1.f);
+	}
 }
 
 void GameState::updateButtons() {
@@ -135,6 +149,7 @@ void GameState::updateButtons() {
 	else if (pauseMenu->isButtonPressed("ADD"))
 	{
 		secondPlayer = true;
+		player2->setPosition(100, 700);
 	}
 }
 
@@ -160,9 +175,16 @@ void GameState::update(const float& dt)
 
 	if (!paused) {
 				
-		player->update(dt);		
+		player->update(dt);
+		if (secondPlayer) {
+			player2->update(dt);
+			map->updateCollision(player2, dt);
+			collisionsP2.update(dt);
+		}
+			
+		
 		entities.update(dt);
-		collisions.update(dt);
+		collisionsP1.update(dt);
 		map->updateCollision(player, dt);
 	
 		updateScore();
@@ -180,6 +202,8 @@ void GameState::render(sf::RenderTarget& target){
 	entities.render(target);
 
 	player->render(target);
+	if (secondPlayer)
+		player2->render(target);
 	
 	target.draw(this->ScoreText);
 

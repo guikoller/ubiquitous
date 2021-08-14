@@ -14,7 +14,8 @@ private:
 	
 	EntityList entities;
 
-	CollisionManager collisions;
+	CollisionManager collisionsP1;
+	CollisionManager collisionsP2;
 
 	TileMap *map;
 
