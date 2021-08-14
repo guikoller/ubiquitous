@@ -39,6 +39,8 @@ void GameState::initPlayers() {
 
 void GameState::initList() {
 	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
+	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
+	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
 	
 	entities.add(new Plant(600, 300, textures["PLANT_SHEET"]));
 	
@@ -53,6 +55,37 @@ void GameState::initList() {
 	entities.add(new Box(200, 784, textures["BOX"]));
 	entities.add(new Box(400, 784, textures["BOX"]));
 	entities.add(new Box(840, 784, textures["BOX"]));
+}
+
+
+void GameState::initPositions() {
+	for (int i = 0; i < entities.length() ; i++)
+	{
+		if (entities.getElement(i)->getID() == 1)
+		{
+
+		}
+		if (entities.getElement(i)->getID() == 2)
+		{
+
+		}
+		if (entities.getElement(i)->getID() == 3)
+		{
+
+		}
+		if (entities.getElement(i)->getID() == 4)
+		{
+
+		}
+		if (entities.getElement(i)->getID() == 5)
+		{
+
+		}
+		if (entities.getElement(i)->getID() == 6)
+		{
+
+		}
+	}
 }
 
 void GameState::initPauseMenu() {

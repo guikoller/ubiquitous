@@ -45,6 +45,10 @@ void Entity::move(const float& dt, const float x, const float y) {
 	}
 }
 
+void Entity::update(const float& dt)
+{
+}
+
 void Entity::render(sf::RenderTarget& target) {
 	target.draw(sprite);
 	if (this->hitboxComponent)
@@ -54,4 +58,19 @@ void Entity::render(sf::RenderTarget& target) {
 void Entity::setID(const int id)
 {
 	this->id = id;
+}
+
+
+const int Entity::getID()const {
+	return id;
+}
+
+bool Entity::intersects(const sf::FloatRect& frect) {
+	if (hitboxComponent)
+		return hitboxComponent->intersects(frect);
+}
+
+const sf::FloatRect Entity::getGlobalBounds() const {
+	if (hitboxComponent)
+		return hitboxComponent->getGlobalBounds();
 }

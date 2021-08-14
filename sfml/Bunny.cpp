@@ -2,7 +2,7 @@
 
 //INITIALIZER FUNCTIONS
 void Bunny::initVariables() {
-
+	setID(4);
 }
 void Bunny::initComponents() {
 

@@ -25,19 +25,11 @@ public:
 	void createHitboxComponent(sf::Sprite& sprite,float offset_x, float offset_y, float width, float height);
 
 	//Accersor
-	const int getID()const {
-		return id;
-	}
+	const int getID()const;
 
-	bool intersects(const sf::FloatRect& frect) {
-		if (hitboxComponent)
-			return hitboxComponent->intersects(frect);
-	}
+	bool intersects(const sf::FloatRect& frect);
 
-	const sf::FloatRect getGlobalBounds() const {
-		if(hitboxComponent)
-			return hitboxComponent->getGlobalBounds();
-	}
+	const sf::FloatRect getGlobalBounds() const;
 
 	//Functions
 	virtual void setPosition(const float pos_x, const float pos_y);

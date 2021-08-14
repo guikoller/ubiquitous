@@ -2,7 +2,7 @@
 
 //INITIALIZER FUNCTIONS
 void Flame::initVariables() {
-
+	setID(2);
 }
 void Flame::initComponents() {
 

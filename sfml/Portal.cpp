@@ -2,7 +2,7 @@
 
 //INITIALIZER FUNCTIONS
 void Portal::initVariables() {
-
+	setID(3);
 }
 void Portal::initComponents() {
 

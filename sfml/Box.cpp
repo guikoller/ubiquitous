@@ -2,7 +2,7 @@
 
 //INITIALIZER FUNCTIONS
 void Box::initVariables() {
-
+	setID(1);
 }
 void Box::initComponents() {
 

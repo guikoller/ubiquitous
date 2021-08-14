@@ -34,6 +34,7 @@ private:
 	
 	void initPlayers();
 	void initList();
+	void initPositions();
 	
 	void initPauseMenu();
 

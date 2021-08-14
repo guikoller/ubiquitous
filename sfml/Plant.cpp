@@ -2,7 +2,7 @@
 
 //INITIALIZER FUNCTIONS
 void Plant::initVariables() {
-
+	setID(6);
 }
 void Plant::initComponents() {
 

@@ -2,7 +2,7 @@
 
 //INITIALIZER FUNCTIONS
 void Enemy::initVariables() {
-
+	setID(5);
 }
 void Enemy::initComponents() {
 
