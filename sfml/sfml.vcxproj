@@ -168,6 +168,7 @@
     <ClCompile Include="Plant.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="ScoreMenuState.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="Plant.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Portal.h" />
+    <ClInclude Include="ScoreMenuState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="Tile.h" />

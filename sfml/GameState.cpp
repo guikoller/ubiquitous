@@ -8,13 +8,13 @@ void GameState::initScore(int score) {
 	this->ScoreText.setCharacterSize(70);
 	this->ScoreText.setPosition(sf::Vector2f(1300.f, 30.f));
 }
+
 void GameState::initLife() {
 	this->LifeText.setFont(this->font);
 	this->LifeText.setFillColor(sf::Color::White);
 	this->LifeText.setCharacterSize(70);
 	this->LifeText.setPosition(sf::Vector2f(200.f, 30.f));
 }
-
 
 void GameState::initTextures() {
 	
@@ -32,11 +32,9 @@ void GameState::initTextures() {
 	}	
 }
 
-
 void GameState::initPlayers() {
 	player = new Player(100,100,textures["PLAYER_SHEET"]);
 }
-
 
 void GameState::initList() {
 	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
@@ -82,7 +80,6 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :Stat
 	this->map = new MainTileMap();
 }
 
-
 GameState::~GameState() {
 	delete player;
 	
@@ -119,7 +116,6 @@ void GameState::updatePlayerInput(const float& dt) {
 		player->move(dt, 0.f, 1.f);
 }
 
-
 void GameState::updateButtons() {
 	if (pauseMenu->isButtonPressed("QUIT"))
 	{
@@ -153,8 +149,6 @@ void GameState::updateLife() {
 		//this->quit = true;
 	}
 }
-
-
 
 void GameState::update(const float& dt)
 {
@@ -198,8 +192,6 @@ void GameState::render(sf::RenderTarget& target){
 	}
 }
 
-
-
 void GameState::save() {
 	if (write) {
 		arquivoPlacar.open("Score/score.txt", std::ios::app);
@@ -208,7 +200,3 @@ void GameState::save() {
 		this->write = false;
 	}
 }
-
-
-
-

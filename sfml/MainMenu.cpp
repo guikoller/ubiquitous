@@ -77,7 +77,7 @@ void MainMenu::updateButton() {
     }
     else if (this->btns["PLACAR"]->isPressed())
     {
-        //this->states->push(new Pontuacao(this->window, this->states));
+        this->states->push(new ScoreMenuState(this->window, this->states));
 
     }
 

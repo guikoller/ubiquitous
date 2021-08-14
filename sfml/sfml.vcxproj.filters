@@ -129,6 +129,9 @@
     <ClCompile Include="MainTileMap.cpp">
       <Filter>Entities\TileMap</Filter>
     </ClCompile>
+    <ClCompile Include="ScoreMenuState.cpp">
+      <Filter>States\MenuStates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -211,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="MainTileMap.h">
       <Filter>Entities\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreMenuState.h">
+      <Filter>States\MenuStates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
