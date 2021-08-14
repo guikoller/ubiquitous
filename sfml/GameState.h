@@ -11,7 +11,7 @@
 
 
 class GameState : public State{
-private:
+public:
 	PauseMenu* pauseMenu;
 	Player* player;
 	Player* player2;
@@ -47,7 +47,7 @@ private:
 	void initLife();
 public:
 	GameState(sf::RenderWindow* window, std::stack<State*>* states);
-	~GameState();
+	virtual ~GameState();
 	
 
 	void save();

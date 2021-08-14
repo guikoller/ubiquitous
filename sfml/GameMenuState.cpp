@@ -72,12 +72,12 @@ void GameMenuState::updateButton() {
     else if (this->btns["1"]->isPressed())
     {
         // PUSH NOVO STATE
-        this->states->push(new GameState(this->window, this->states));
+        this->states->push(new FirstGameState(this->window, this->states));
         printf("Button  inicar precionado\n");
     }
     else if (this->btns["2"]->isPressed())
     {
-        this->states->push(new GameState(this->window, this->states));
+        this->states->push(new SecondGameState(this->window, this->states));
         printf("Button  inicar precionado\n");
     }
     if (this->btns["ADD"]->isPressed())

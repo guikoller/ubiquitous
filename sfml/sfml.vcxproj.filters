@@ -132,6 +132,12 @@
     <ClCompile Include="ScoreMenuState.cpp">
       <Filter>States\MenuStates</Filter>
     </ClCompile>
+    <ClCompile Include="FirstGameState.cpp">
+      <Filter>States\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondGameState.cpp">
+      <Filter>States\GameStates</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -214,6 +220,12 @@
     </ClInclude>
     <ClInclude Include="ScoreMenuState.h">
       <Filter>States\MenuStates</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstGameState.h">
+      <Filter>States\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondGameState.h">
+      <Filter>States\GameStates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

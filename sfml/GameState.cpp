@@ -198,7 +198,9 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :Stat
 }
 
 GameState::~GameState() {
-	delete player;
+	/*delete player;
+	delete player2;
+	delete pauseMenu;
 	
 	entities.destroy();
 
@@ -207,7 +209,7 @@ GameState::~GameState() {
 	for (it = this->btns.begin(); it != this->btns.end(); ++it)
 	{
 		delete it->second;
-	}
+	}*/
 
 }
 
