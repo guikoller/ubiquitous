@@ -43,45 +43,93 @@ void GameState::initList() {
 	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
 	
 	entities.add(new Plant(600, 300, textures["PLANT_SHEET"]));
+	entities.add(new Plant(600, 300, textures["PLANT_SHEET"]));
+	entities.add(new Plant(600, 300, textures["PLANT_SHEET"]));
 	
 	entities.add(new Bunny(900, 500, textures["BUNNY_SHEET"]));
+	entities.add(new Bunny(900, 500, textures["BUNNY_SHEET"]));
+	entities.add(new Bunny(900, 500, textures["BUNNY_SHEET"]));
 	
-	entities.add(new Portal(1000, 80, textures["PORTAL_SHEET"]));
+	entities.add(new Portal(1000, 130, textures["PORTAL_SHEET"]));
+	entities.add(new Portal(1450, 700, textures["PORTAL_SHEET"]));
+
 	
-	entities.add(new Flame(500, 750, textures["FLAME_SHEET"]));
-	entities.add(new Flame(600, 480, textures["FLAME_SHEET"]));
-	entities.add(new Flame(80, 480, textures["FLAME_SHEET"]));
+	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
+	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
+	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
+	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
+
 	
 	entities.add(new Box(200, 784, textures["BOX"]));
 	entities.add(new Box(400, 784, textures["BOX"]));
-	entities.add(new Box(840, 784, textures["BOX"]));
+	entities.add(new Box(840, 530, textures["BOX"]));
+	entities.add(new Box(500, 784, textures["BOX"]));
+	entities.add(new Box(456, 784, textures["BOX"]));
+	entities.add(new Box(840, 210, textures["BOX"]));
+
 }
 
 
 void GameState::initPositions() {
+
+	std::srand((unsigned)std::time(0));
+
+	float xpos;
+
 	for (int i = 0; i < entities.length() ; i++)
 	{
-		if (entities.getElement(i)->getID() == 1)
+		if (entities.getElement(i)->getID() == 1)//Box
+		{
+			std::vector<float> ypos = { 210, 530, 784 };
+
+			int it = (rand() % 3);
+
+			if (ypos.at(it) == 210) {
+				xpos = (rand() % 1300) + 200;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+			else if (ypos.at(it) == 530) {
+				xpos = (rand() % 1000) + 64;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+			else if (ypos.at(it) == 784) {
+				xpos = (rand() % 1000) + 500;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+		}
+		if (entities.getElement(i)->getID() == 2)//Flame
+		{
+			std::vector<float> ypos = { 160, 480, 740 };
+
+			int it  = (rand() % 3);
+
+			if (ypos.at(it) == 160){
+				xpos = (rand() % 1300) + 200;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+			else if (ypos.at(it) == 480) {
+				xpos = (rand() % 1000) + 64;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+			else if (ypos.at(it) == 740) {
+				xpos = (rand() % 1000) + 500;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+
+		}
+		if (entities.getElement(i)->getID() == 3)//POrtal
 		{
 
 		}
-		if (entities.getElement(i)->getID() == 2)
+		if (entities.getElement(i)->getID() == 4)//Bunny
 		{
 
 		}
-		if (entities.getElement(i)->getID() == 3)
+		if (entities.getElement(i)->getID() == 5)//Inverse
 		{
 
 		}
-		if (entities.getElement(i)->getID() == 4)
-		{
-
-		}
-		if (entities.getElement(i)->getID() == 5)
-		{
-
-		}
-		if (entities.getElement(i)->getID() == 6)
+		if (entities.getElement(i)->getID() == 6)//Plant
 		{
 
 		}
@@ -104,6 +152,7 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :Stat
 	initTextures();
 	initPlayers();
 	initList();
+	initPositions();
 	initPauseMenu();
 
 	initScore(100);

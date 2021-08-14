@@ -1,5 +1,9 @@
 #pragma once
 
+
+#include <cstdlib>
+#include <ctime>
+
 #include "State.h"
 #include "CollisionManager.h"
 #include "PauseMenu.h"

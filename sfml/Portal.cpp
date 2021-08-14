@@ -14,10 +14,10 @@ Portal::Portal(float x, float y, sf::Texture& texture_sheet) {
 
 	setPosition(x, y);
 
-	createHitboxComponent(this->sprite, 73, 45, 43, 128);
+	createHitboxComponent(this->sprite, 48, 30, 28, 85);
 	createAnimationComponent(texture_sheet);
 
-	setSPriteScale(sf::Vector2f(3.f, 3.f));
+	setSPriteScale(sf::Vector2f(2.f, 2.f));
 
 	this->animationComponent->addAnimation("IDDLE", 12.f, 0, 0, 7, 0, 64, 64);
 
