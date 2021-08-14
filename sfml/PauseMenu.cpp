@@ -23,7 +23,7 @@ PauseMenu::PauseMenu(sf::RenderWindow& window, sf::Font& font) :font(font) {
 
 	//INIT TEXT
 	menuText.setFont(font);
-	menuText.setFillColor(sf::Color(255,255,255,200));
+	menuText.setFillColor(sf::Color(255,255,255,230));
 	menuText.setCharacterSize(60);
 
 	menuText.setString("PAUSED");
@@ -81,8 +81,8 @@ void PauseMenu::update(const sf::Vector2f& mousePos) {
 
 void PauseMenu::render(sf::RenderTarget& target) {
 
-	//target.draw(bg);
-	//target.draw(container);
+	target.draw(bg);
+	target.draw(container);
 	target.draw(menuText);
 
 	for (auto& it : this->buttons)

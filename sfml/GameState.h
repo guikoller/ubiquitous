@@ -8,6 +8,7 @@
 
 class GameState : public State{
 private:
+	PauseMenu* pauseMenu;
 	Player* player;
 	Player* player2;
 	
@@ -37,7 +38,6 @@ private:
 	void initPauseMenu();
 
 
-	void initButton();
 	void initScore(int placar);
 	void initLife();
 public:
@@ -52,16 +52,12 @@ public:
 	void updateInput(const float& dt);
 	void updateKeybinds(const float& dt);
 	void updatePlayerInput(const float& dt);
-	//void updateCollision();
+	void updateButtons();
 	
-	void updateBtn();
 	void updateScore();
 	void updateLife();
-	void update(const float& dt);	
 	
-	void renderBtn(sf::RenderTarget& target);
-	void renderScore(sf::RenderTarget& target);
-	void renderLife(sf::RenderTarget& target);
+	void update(const float& dt);
 	void render(sf::RenderTarget& target);
 };
 

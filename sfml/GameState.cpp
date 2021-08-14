@@ -1,37 +1,5 @@
 #include "GameState.h"
 
-
-void GameState::initButton() {
-	this->paused = false;
-	this->secondPlayer = false;
-
-	this->btns["voltar"] = new Button(600, 200, 350, 80, "Continuar", &this->font,
-		sf::Color(0, 0, 0, 230),
-		sf::Color(10, 10, 10, 200),
-		sf::Color(20, 20, 20, 150));
-
-	this->btns["jogador"] = new Button(600, 300, 350, 80, "Adicionar Jogador", &this->font,
-		sf::Color(0, 0, 0, 230),
-		sf::Color(10, 10, 10, 200),
-		sf::Color(20, 20, 20, 150));
-
-	this->btns["salvarScore"] = new Button(600, 400, 350, 80, "Salvar Pontuacao", &this->font,
-		sf::Color(0, 0, 0, 230),
-		sf::Color(10, 10, 10, 200),
-		sf::Color(20, 20, 20, 150));
-	this->btns["SalvarJogo"] = new Button(600, 500, 350, 80, "Salvar Jogo", &this->font,
-		sf::Color(0, 0, 0, 230),
-		sf::Color(10, 10, 10, 200),
-		sf::Color(20, 20, 20, 150));
-	this->btns["CarregarJogo"] = new Button(600, 600, 350, 80, "Carregar Jogo", &this->font,
-		sf::Color(0, 0, 0, 230),
-		sf::Color(10, 10, 10, 200),
-		sf::Color(20, 20, 20, 150));
-	this->btns["SAIR"] = new Button(600, 700, 350, 80, "Sair", &this->font,
-		sf::Color(0, 0, 0, 230),
-		sf::Color(10, 10, 10, 200),
-		sf::Color(20, 20, 20, 150));
-}
 void GameState::initScore(int score) {
 	bool write = true;
 	this->score = score;
@@ -89,7 +57,12 @@ void GameState::initList() {
 }
 
 void GameState::initPauseMenu() {
-	
+	pauseMenu = new PauseMenu(*window, font);
+	pauseMenu->addButton("PLAY", 400.f, "play");
+	pauseMenu->addButton("SAVE", 500.f, "save");
+	pauseMenu->addButton("LOAD", 600.f, "load");
+	pauseMenu->addButton("ADD", 700.f, "add player");
+	pauseMenu->addButton("QUIT", 800.f, "quit");
 }
 
 GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states)
@@ -101,9 +74,7 @@ GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :Stat
 	initList();
 	initPauseMenu();
 
-
-	initButton();
-	initScore(0);
+	initScore(100);
 	initLife();
 
 
@@ -132,10 +103,8 @@ void GameState::updateKeybinds(const float& dt) {
 
 void GameState::updateInput(const float& dt) {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
-
 		paused = true;
 		this->write = true;
-
 	}
 }
 
@@ -148,38 +117,28 @@ void GameState::updatePlayerInput(const float& dt) {
 		player->move(dt, 0.f, -1.f);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		player->move(dt, 0.f, 1.f);
-
-
-	for (auto& it : this->btns) {
-		it.second->update(this->mousePosView);
-	}
-
-	// SAIR DO JOGO
-	if (this->btns["SAIR"]->isPressed()) {
-		this->quit = true;
-	}
-	else if (this->btns["voltar"]->isPressed()) {
-		this->paused = false;
-	}
-	else if (this->btns["jogador"]->isPressed()) {
-		this->secondPlayer = true;
-	}
-	else if (this->btns["salvarScore"]->isPressed()) {
-		//salvar pontuação 
-		save();
-	}
-	else if (this->btns["SalvarJogo"]->isPressed()) {
-		// salvar jogo
-	}
-	else if (this->btns["CarregarJogo"]->isPressed()) {
-		//carregar jogo
-	}
 }
 
 
-void GameState::updateBtn() {
-	for (auto& it : this->btns) {
-		it.second->update(this->mousePosView);
+void GameState::updateButtons() {
+	if (pauseMenu->isButtonPressed("QUIT"))
+	{
+		quit = true;
+	}else if(pauseMenu->isButtonPressed("PLAY"))
+	{
+		paused = false;
+	}
+	else if (pauseMenu->isButtonPressed("SAVE"))
+	{
+		save();
+	}
+	else if (pauseMenu->isButtonPressed("LOAD"))
+	{
+		paused = false;
+	}
+	else if (pauseMenu->isButtonPressed("ADD"))
+	{
+		secondPlayer = true;
 	}
 }
 
@@ -216,27 +175,10 @@ void GameState::update(const float& dt)
 		updateLife();
 	}
 	if(paused) {
-		updateBtn();
+		updateButtons();
+		pauseMenu->update(mousePosView);
 	}	
 }
-
-
-void GameState::renderBtn(sf::RenderTarget& target) {
-	if (this->paused) {
-		for (auto& it : this->btns) {
-			it.second->render(target);
-		}
-	}
-}
-
-void GameState::renderScore(sf::RenderTarget& target) {
-	target.draw(this->ScoreText);
-}
-
-void GameState::renderLife(sf::RenderTarget& target) {
-	target.draw(this->LifeText);
-}
-
 
 void GameState::render(sf::RenderTarget& target){
 	this->map->render(target);
@@ -245,11 +187,15 @@ void GameState::render(sf::RenderTarget& target){
 
 	player->render(target);
 	
-	renderScore(target);
+	target.draw(this->ScoreText);
 
-	renderLife(target);
+	target.draw(this->LifeText);
 
-	renderBtn(target);
+	if (paused) {
+		//PAUSE RENDER
+		pauseMenu->render(target);
+
+	}
 }
 
 
