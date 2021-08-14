@@ -50,3 +50,8 @@ void Entity::render(sf::RenderTarget& target) {
 	if (this->hitboxComponent)
 		hitboxComponent->render(target);
 }
+
+void Entity::setID(const int id)
+{
+	this->id = id;
+}

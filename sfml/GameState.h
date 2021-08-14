@@ -8,14 +8,25 @@
 
 class GameState : public State{
 private:
-	PauseMenu *pauseMenu;
-	Player *player;
+	Player* player;
+	Player* player2;
 	
 	EntityList entities;
 
 	CollisionManager collisions;
 
 	TileMap *map;
+
+
+	int score;
+	bool write;
+	sf::Text ScoreText;
+	sf::Text LifeText;
+	std::ofstream arquivoPlacar;
+
+	std::map<std::string, Button*> btns;
+	bool paused;
+	bool secondPlayer;
 
 	//Functions
 	void initTextures();
@@ -24,20 +35,33 @@ private:
 	void initList();
 	
 	void initPauseMenu();
+
+
+	void initButton();
+	void initScore(int placar);
+	void initLife();
 public:
 	GameState(sf::RenderWindow* window, std::stack<State*>* states);
 	~GameState();
 	
-	
+
+	void save();
+
 	void moveEnemies(const float& dt);
 	
 	void updateInput(const float& dt);
 	void updateKeybinds(const float& dt);
 	void updatePlayerInput(const float& dt);
-	void updateButtons();
 	//void updateCollision();
 	
-	void update(const float& dt);
+	void updateBtn();
+	void updateScore();
+	void updateLife();
+	void update(const float& dt);	
+	
+	void renderBtn(sf::RenderTarget& target);
+	void renderScore(sf::RenderTarget& target);
+	void renderLife(sf::RenderTarget& target);
 	void render(sf::RenderTarget& target);
 };
 
