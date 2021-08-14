@@ -17,6 +17,7 @@ protected:
 public:
     TileMap();
     virtual ~TileMap();
+    
     void deleteMap();
 
     //Acessores

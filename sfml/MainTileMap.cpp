@@ -15,17 +15,6 @@ void MainTileMap::initTextures()
 	}
 }
 
-MainTileMap::MainTileMap()
-{
-	initTextures();
-	createMap();
-}
-
-MainTileMap::~MainTileMap()
-{
-	deleteMap();
-}
-
 void MainTileMap::createMap()
 {
 	this->map.clear();
@@ -95,3 +84,16 @@ void MainTileMap::createMap()
 		Linha.clear();
 	}
 }
+
+MainTileMap::MainTileMap()
+{
+	initTextures();
+	createMap();
+}
+
+MainTileMap::~MainTileMap()
+{
+	deleteMap();
+}
+
+

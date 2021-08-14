@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Tilemap.h"
+
 class MainTileMap :
     public TileMap
 {
@@ -9,6 +11,6 @@ public:
     MainTileMap();
     ~MainTileMap();
     
-    void createMap();
+    virtual void createMap();
 };
 
