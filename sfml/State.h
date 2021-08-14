@@ -16,6 +16,8 @@ public:
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
 
+    std::ofstream file;
+
     //Resources
     std::map<std::string, sf::Texture> textures;
 

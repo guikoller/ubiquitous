@@ -23,7 +23,6 @@ private:
 	bool write;
 	sf::Text ScoreText;
 	sf::Text LifeText;
-	std::ofstream arquivoPlacar;
 
 	std::map<std::string, Button*> btns;
 	bool paused;

@@ -1,6 +1,20 @@
 #include "GameMenuState.h"
 
+void GameMenuState::addName()
+{
+    system("CLS");
+    printf("Enter your name:\n");
+    std::cin >> name;
+    std::cout << "Hello " << name << "\n";
+}
+
 void GameMenuState::initButton() {
+
+
+    this->btns["ADD"] = new Button(550, 300, 480, 80, "name", &this->font,
+        sf::Color(0, 0, 0, 230),
+        sf::Color(10, 10, 10, 200),
+        sf::Color(20, 20, 20, 150));
 
     this->btns["1"] = new Button(550, 450, 220, 80, "I", &this->font,
         sf::Color(0, 0, 0, 230),
@@ -12,11 +26,10 @@ void GameMenuState::initButton() {
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
-    this->btns["QUIT"] = new Button(682, 630, 220, 80, "back", &this->font,
+    this->btns["QUIT"] = new Button(100, 800, 220, 80, "back", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
-
 }
 
 void GameMenuState::initBackground() {
@@ -67,6 +80,11 @@ void GameMenuState::updateButton() {
         this->states->push(new GameState(this->window, this->states));
         printf("Button  inicar precionado\n");
     }
+    if (this->btns["ADD"]->isPressed())
+    {
+        addName();
+        save();
+    }
 }
 
 void GameMenuState::update(const float& dt) {
@@ -86,5 +104,12 @@ void GameMenuState::renderButton(sf::RenderTarget& target) {
 void GameMenuState::render(sf::RenderTarget& target) {
     target.draw(this->background);
     renderButton(target);
+}
+
+void GameMenuState::save()
+{
+    file.open("Saves/score.txt", std::ios::app);
+    file << name << ": ";
+    file.close();
 }
 

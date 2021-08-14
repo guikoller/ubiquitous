@@ -194,9 +194,9 @@ void GameState::render(sf::RenderTarget& target){
 
 void GameState::save() {
 	if (write) {
-		arquivoPlacar.open("Score/score.txt", std::ios::app);
-		arquivoPlacar << score << "\n";
-		arquivoPlacar.close();
+		file.open("Saves/score.txt", std::ios::app);
+		file << score << "\n";
+		file.close();
 		this->write = false;
 	}
 }

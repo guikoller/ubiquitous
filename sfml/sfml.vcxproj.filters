@@ -179,9 +179,6 @@
     <ClInclude Include="Box.h">
       <Filter>Entities\Obstacles</Filter>
     </ClInclude>
-    <ClInclude Include="Element.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="List.h">
       <Filter>Lists</Filter>
     </ClInclude>

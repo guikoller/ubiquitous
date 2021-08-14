@@ -180,7 +180,6 @@
     <ClInclude Include="Bunny.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="CollisionManager.h" />
-    <ClInclude Include="Element.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityList.h" />
