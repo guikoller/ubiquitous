@@ -38,20 +38,20 @@ void GameState::initPlayers() {
 }
 
 void GameState::initList() {
-	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
-	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
-	entities.add(new Enemy(900, 800, textures["ENEMY_SHEET"]));
+	entities.add(new Enemy(900, 740, textures["ENEMY_SHEET"]));
+	entities.add(new Enemy(900, 482, textures["ENEMY_SHEET"]));
+	entities.add(new Enemy(900, 162, textures["ENEMY_SHEET"]));
 	
-	entities.add(new Plant(600, 300, textures["PLANT_SHEET"]));
-	entities.add(new Plant(600, 300, textures["PLANT_SHEET"]));
-	entities.add(new Plant(600, 300, textures["PLANT_SHEET"]));
+	entities.add(new Plant(1400, 755, textures["PLANT_SHEET"]));
+	entities.add(new Plant(80, 493, textures["PLANT_SHEET"]));
+	entities.add(new Plant(1400, 171, textures["PLANT_SHEET"]));
 	
-	entities.add(new Bunny(900, 500, textures["BUNNY_SHEET"]));
-	entities.add(new Bunny(900, 500, textures["BUNNY_SHEET"]));
-	entities.add(new Bunny(900, 500, textures["BUNNY_SHEET"]));
+	entities.add(new Bunny(900, 700, textures["BUNNY_SHEET"]));
+	entities.add(new Bunny(900, 447, textures["BUNNY_SHEET"]));
+	entities.add(new Bunny(900, 125, textures["BUNNY_SHEET"]));
 	
 	entities.add(new Portal(1000, 130, textures["PORTAL_SHEET"]));
-	entities.add(new Portal(1450, 700, textures["PORTAL_SHEET"]));
+	entities.add(new Portal(1450, 210, textures["PORTAL_SHEET"]));
 
 	
 	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
@@ -60,15 +60,14 @@ void GameState::initList() {
 	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
 
 	
-	entities.add(new Box(200, 784, textures["BOX"]));
-	entities.add(new Box(400, 784, textures["BOX"]));
-	entities.add(new Box(840, 530, textures["BOX"]));
-	entities.add(new Box(500, 784, textures["BOX"]));
-	entities.add(new Box(456, 784, textures["BOX"]));
-	entities.add(new Box(840, 210, textures["BOX"]));
+	entities.add(new Box(0, 0, textures["BOX"]));
+	entities.add(new Box(0, 0, textures["BOX"]));
+	entities.add(new Box(0, 0, textures["BOX"]));
+	entities.add(new Box(0, 0, textures["BOX"]));
+	entities.add(new Box(0, 0, textures["BOX"]));
+	entities.add(new Box(0, 0, textures["BOX"]));
 
 }
-
 
 void GameState::initPositions() {
 
@@ -85,7 +84,9 @@ void GameState::initPositions() {
 			int it = (rand() % 3);
 
 			if (ypos.at(it) == 210) {
-				xpos = (rand() % 1300) + 200;
+				xpos = (rand() % 1500) + 400;
+				if (xpos > 1550)
+					xpos = 1550;
 				entities.getElement(i)->setPosition(xpos, ypos[it]);
 			}
 			else if (ypos.at(it) == 530) {
@@ -104,7 +105,9 @@ void GameState::initPositions() {
 			int it  = (rand() % 3);
 
 			if (ypos.at(it) == 160){
-				xpos = (rand() % 1300) + 200;
+				xpos = (rand() % 1300) + 400;
+				if (xpos > 1550)
+					xpos = 1550;
 				entities.getElement(i)->setPosition(xpos, ypos[it]);
 			}
 			else if (ypos.at(it) == 480) {
@@ -117,17 +120,47 @@ void GameState::initPositions() {
 			}
 
 		}
-		if (entities.getElement(i)->getID() == 3)//POrtal
-		{
-
-		}
 		if (entities.getElement(i)->getID() == 4)//Bunny
 		{
+			std::vector<float> ypos = { 125, 447, 700 };
 
+			int it = (rand() % 3);
+
+			if (ypos.at(it) == 125) {
+				xpos = (rand() % 1500) + 300;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+				if (xpos > 1550)
+					xpos = 1550;
+			}
+			else if (ypos.at(it) == 447) {
+				xpos = (rand() % 1000) + 64;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+			else if (ypos.at(it) == 700) {
+				xpos = (rand() % 1000) + 500;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
 		}
 		if (entities.getElement(i)->getID() == 5)//Inverse
 		{
+			std::vector<float> ypos = { 740, 482, 162 };
 
+			int it = (rand() % 3);
+
+			if (ypos.at(it) == 162) {
+				xpos = (rand() % 1300)+400;
+				if (xpos > 1550)
+					xpos = 1550;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+			else if (ypos.at(it) == 482) {
+				xpos = (rand() % 1000) + 64;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
+			else if (ypos.at(it) == 740) {
+				xpos = (rand() % 1000) + 500;
+				entities.getElement(i)->setPosition(xpos, ypos[it]);
+			}
 		}
 		if (entities.getElement(i)->getID() == 6)//Plant
 		{
