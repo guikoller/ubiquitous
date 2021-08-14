@@ -2,17 +2,17 @@
 
 void GameMenuState::initButton() {
 
-    this->btns["NEW"] = new Button(300, 350, 220, 80, "new", &this->font,
+    this->btns["1"] = new Button(550, 450, 220, 80, "I", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
-    this->btns["LOAD"] = new Button(300, 450, 220, 80, "load game", &this->font,
+    this->btns["2"] = new Button(800, 450, 220, 80, "II", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
 
-    this->btns["QUIT"] = new Button(300, 550, 220, 80, "<-", &this->font,
+    this->btns["QUIT"] = new Button(682, 630, 220, 80, "back", &this->font,
         sf::Color(0, 0, 0, 230),
         sf::Color(10, 10, 10, 200),
         sf::Color(20, 20, 20, 150));
@@ -56,19 +56,17 @@ void GameMenuState::updateButton() {
     {
         this->quit = true;
     }
-    else if (this->btns["NEW"]->isPressed())
+    else if (this->btns["1"]->isPressed())
     {
         // PUSH NOVO STATE
-        this->states->push(new NewGameMenuState(this->window, this->states));
+        this->states->push(new GameState(this->window, this->states));
         printf("Button  inicar precionado\n");
     }
-    else if (this->btns["LOAD"]->isPressed())
+    else if (this->btns["2"]->isPressed())
     {
-        //this->states->push(new Pontuacao(this->window, this->states));
-        printf("Button  placar precionado\n");
+        this->states->push(new GameState(this->window, this->states));
+        printf("Button  inicar precionado\n");
     }
-
-
 }
 
 void GameMenuState::update(const float& dt) {

@@ -102,7 +102,7 @@ void GameState::updateKeybinds(const float& dt) {
 }
 
 void GameState::updateInput(const float& dt) {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
 		paused = true;
 		this->write = true;
 	}

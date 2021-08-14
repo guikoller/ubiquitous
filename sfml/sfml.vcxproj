@@ -164,7 +164,6 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MainTileMap.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
-    <ClCompile Include="NewGameMenuState.cpp" />
     <ClCompile Include="PauseMenu.cpp" />
     <ClCompile Include="Plant.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -194,7 +193,6 @@
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MainTileMap.h" />
     <ClInclude Include="MovementComponent.h" />
-    <ClInclude Include="NewGameMenuState.h" />
     <ClInclude Include="PauseMenu.h" />
     <ClInclude Include="Plant.h" />
     <ClInclude Include="Player.h" />

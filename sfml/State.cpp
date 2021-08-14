@@ -27,7 +27,7 @@ void State::update(const float& dt) {
 }
 
 void State::checkQuit() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
     {
         this->quit = true;
     }

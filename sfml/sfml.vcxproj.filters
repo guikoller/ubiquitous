@@ -117,9 +117,6 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>States\MenuStates</Filter>
     </ClCompile>
-    <ClCompile Include="NewGameMenuState.cpp">
-      <Filter>States\MenuStates</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Resource Files\Managers</Filter>
     </ClCompile>
@@ -196,9 +193,6 @@
     </ClInclude>
     <ClInclude Include="GameState.h">
       <Filter>States\GameStates</Filter>
-    </ClInclude>
-    <ClInclude Include="NewGameMenuState.h">
-      <Filter>States\MenuStates</Filter>
     </ClInclude>
     <ClInclude Include="GameMenuState.h">
       <Filter>States\MenuStates</Filter>
