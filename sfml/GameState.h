@@ -52,6 +52,7 @@ public:
 	
 
 	void save();
+	void load();
 
 	void moveEnemies(const float& dt);
 	

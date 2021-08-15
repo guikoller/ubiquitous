@@ -250,7 +250,7 @@ void GameState::updateButtons() {
 	}
 	else if (pauseMenu->isButtonPressed("LOAD"))
 	{
-		paused = false;
+		load();
 	}
 	else if (pauseMenu->isButtonPressed("ADD"))
 	{
@@ -357,5 +357,21 @@ void GameState::save() {
 	for (int i = 0; i < entities.length(); i++)
 	{
 		entities.getElement(i)->save();
+	}
+}
+void GameState::load() {
+	std::vector<float> pos;
+	float input;
+	std::ifstream file("Saves/save.txt");
+
+	while (file >> input)
+	{
+		pos.push_back(input);
+	}
+	player->setPosition(pos.at(0),pos.at(1));
+	for (int i = 2; i < 30; i+=2)
+	{
+		if(entities.getElement(i))
+			entities.getElement(i)->setPosition(pos.at(i),pos.at(i+1));
 	}
 }

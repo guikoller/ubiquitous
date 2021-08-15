@@ -29,7 +29,7 @@ void CollisionManager::update(const float &dt) {
 				&& playerBounds.left + playerBounds.width > entBounds.left
 				)
 			{
-				list->getElement(i)->setPosition(-400, -400);
+				list->getElement(i)->setPosition(10000, 1000);
 				printf("colisão chão\n");
 			}
 			//top

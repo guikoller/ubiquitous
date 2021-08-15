@@ -36,8 +36,7 @@ void Portal::update(const float& dt) {
 void Portal::savePortal()
 {
 	file.open("Saves/save.txt", std::ios::app);
-	file << getID() << " ";
-	file << this->hitboxComponent->getPosition().x << " ";
+	file << this->hitboxComponent->getPosition().x << "\n";
 	file << this->hitboxComponent->getPosition().y << "\n";
 	file.close();
 }
