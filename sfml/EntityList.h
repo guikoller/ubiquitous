@@ -11,6 +11,7 @@
 #include "Portal.h"
 #include "Flame.h"
 #include "Box.h"
+#include "Bullet.h"
 
 
 class EntityList {
@@ -24,7 +25,7 @@ public:
 
 
     void add(Entity* ent);
-    void remove(Entity* ent);
+    void remove(const int pos);
 
 
 

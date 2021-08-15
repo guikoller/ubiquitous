@@ -26,6 +26,7 @@ void GameState::initTextures() {
 		this->textures["PLANT_SHEET"].loadFromFile("Resources/sprites/plant.png");
 		this->textures["FLAME_SHEET"].loadFromFile("Resources/sprites/flame.png");
 		this->textures["BOX"].loadFromFile("Resources/sprites/box.png");
+		this->textures["BULLET"].loadFromFile("Resources/sprites/Bullet.png");
 	}
 	catch (const std::exception&){
 		throw("PLAYER_SHEET COULD NOT LOAD\n");
@@ -38,35 +39,23 @@ void GameState::initPlayers() {
 }
 
 void GameState::initList() {
-	entities.add(new Enemy(900, 740, textures["ENEMY_SHEET"]));
-	entities.add(new Enemy(900, 482, textures["ENEMY_SHEET"]));
-	entities.add(new Enemy(900, 162, textures["ENEMY_SHEET"]));
+	for (int i = 0; i < 3; i++)
+		entities.add(new Enemy(0, 0, textures["ENEMY_SHEET"]));
+		
 	
-	entities.add(new Plant(1400, 755, textures["PLANT_SHEET"]));
 	entities.add(new Plant(80, 493, textures["PLANT_SHEET"]));
-	entities.add(new Plant(1400, 171, textures["PLANT_SHEET"]));
 	
-	entities.add(new Bunny(900, 700, textures["BUNNY_SHEET"]));
-	entities.add(new Bunny(900, 447, textures["BUNNY_SHEET"]));
-	entities.add(new Bunny(900, 125, textures["BUNNY_SHEET"]));
+	for (int i = 0; i < 3; i++)
+		entities.add(new Bunny(0, 0, textures["BUNNY_SHEET"]));
 	
-	entities.add(new Portal(1000, 130, textures["PORTAL_SHEET"]));
-	entities.add(new Portal(1450, 210, textures["PORTAL_SHEET"]));
+	for (int i = 0; i < 3; i++)
+		entities.add(new Portal(0, 0, textures["PORTAL_SHEET"]));
 
+	for (int i = 0; i < 4; i++)
+		entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
 	
-	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
-	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
-	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
-	entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
-
-	
-	entities.add(new Box(0, 0, textures["BOX"]));
-	entities.add(new Box(0, 0, textures["BOX"]));
-	entities.add(new Box(0, 0, textures["BOX"]));
-	entities.add(new Box(0, 0, textures["BOX"]));
-	entities.add(new Box(0, 0, textures["BOX"]));
-	entities.add(new Box(0, 0, textures["BOX"]));
-
+	for (int i = 0; i < 5; i++)
+		entities.add(new Box(0, 0, textures["BOX"]));
 }
 
 void GameState::initPositions() {
@@ -270,6 +259,19 @@ void GameState::updateButtons() {
 	}
 }
 
+void GameState::createProjectiles()
+{
+	if (clock.getElapsedTime().asSeconds()>=0.8)
+	{
+		projectiles->add(new Bullet(80, 488, textures["BULLET"]));
+		printf("projectile created\n");
+	}
+	if (clock.getElapsedTime().asSeconds() >= 0.8)
+	{
+		clock.restart();
+	}
+}
+
 void GameState::updateScore() {
 	this->ScoreText.setString(std::to_string(this->score));
 }
@@ -299,13 +301,19 @@ void GameState::update(const float& dt)
 			collisionsP2.update(dt);
 		}
 			
-		
 		entities.update(dt);
 		collisionsP1.update(dt);
 		map->updateCollision(player, dt);
+
+		entities.getElement(2)->move(dt, 10, 10);
 	
 		updateScore();
 		updateLife();
+		if (projectiles) {
+			createProjectiles();
+			projectiles->update(dt);
+		}
+		
 	}
 	if(paused) {
 		updateButtons();
@@ -321,6 +329,9 @@ void GameState::render(sf::RenderTarget& target){
 	player->render(target);
 	if (secondPlayer)
 		player2->render(target);
+
+	if(projectiles)
+		projectiles->render(target);
 	
 	target.draw(this->ScoreText);
 

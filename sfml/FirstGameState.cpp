@@ -16,6 +16,8 @@ FirstGameState::FirstGameState(sf::RenderWindow* window, std::stack<State*>* sta
 	collisionsP1.add(player, &entities);
 	collisionsP2.add(player2, &entities);
 	this->map = new MainTileMap();
+
+	projectiles = new EntityList();
 }
 
 FirstGameState::~FirstGameState()
@@ -24,7 +26,9 @@ FirstGameState::~FirstGameState()
 	delete player;
 	delete player2;
 	delete pauseMenu;
+	delete projectiles;
 
+	entities.destroy();
 	entities.destroy();
 
 	auto it = this->btns.begin();

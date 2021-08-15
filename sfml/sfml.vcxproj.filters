@@ -141,6 +141,9 @@
     <ClCompile Include="SecondTileMap.cpp">
       <Filter>Entities\TileMap</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Entities\Obstacles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="SecondTileMap.h">
       <Filter>Entities\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Entities\Obstacles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

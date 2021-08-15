@@ -2,7 +2,7 @@
 
 //INITIALIZER FUNCTIONS
 void Player::initVariables() {
-
+	life = 100;
 }
 void Player::initComponents() {
 	

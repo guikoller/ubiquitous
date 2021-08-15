@@ -12,8 +12,11 @@ void EntityList::add(Entity* ent) {
     entities.push_back(ent);
 }
 
-void EntityList::remove(Entity* ent) {
-
+void EntityList::remove(const int pos) {
+    Entity* aux;
+    aux = getElement(pos);
+    entities.push_back(getElement(pos));
+    delete aux;    
 }
 
 void EntityList::destroy() {

@@ -17,12 +17,13 @@ public:
 	Player* player2;
 	
 	EntityList entities;
+	EntityList *projectiles;
 
 	CollisionManager collisionsP1;
 	CollisionManager collisionsP2;
 
 	TileMap *map;
-
+	sf::Clock clock;
 
 	int score;
 	bool write;
@@ -58,6 +59,8 @@ public:
 	void updateKeybinds(const float& dt);
 	void updatePlayerInput(const float& dt);
 	void updateButtons();
+	void createProjectiles();
+	void updateProjectiles(const float& dt);
 	
 	void updateScore();
 	void updateLife();

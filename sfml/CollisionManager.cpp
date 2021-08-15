@@ -29,8 +29,7 @@ void CollisionManager::update(const float &dt) {
 				&& playerBounds.left + playerBounds.width > entBounds.left
 				)
 			{
-				this->ent->movementComponent->stopVelocityY();
-				this->ent->hitboxComponent->setPosition(playerBounds.left, entBounds.top - playerBounds.height);
+				list->getElement(i)->setPosition(-400, -400);
 				printf("colisão chão\n");
 			}
 			//top
@@ -41,7 +40,7 @@ void CollisionManager::update(const float &dt) {
 				)
 			{
 				this->ent->movementComponent->stopVelocityX();
-				this->ent->hitboxComponent->setPosition(entBounds.left + entBounds.width, playerBounds.top);
+				//this->ent->hitboxComponent->setPosition(entBounds.left + entBounds.width, playerBounds.top);
 				printf("colisão topo\n");
 			}
 			//right
