@@ -9,5 +9,7 @@ public:
 	Bullet(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Bullet();
 	void update(const float& dt);
+	void saveBullet();
+	virtual void save();
 };
 

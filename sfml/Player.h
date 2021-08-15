@@ -4,6 +4,7 @@
 class Player :  public Entity{
 private:
 	int life;
+	int score;
 	void initVariables();
 	void initComponents();
 public:
@@ -11,10 +12,12 @@ public:
 	virtual ~Player();
 	virtual void update(const float& dt);
 	void operator++(int num) {
-		life + num;
+		score + num;
 	}
 	void operator--(int num) {
 		life - num;
 	}
+	void savePlayer();
+	virtual void save();
 };
 

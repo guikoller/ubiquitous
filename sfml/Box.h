@@ -9,5 +9,7 @@ public:
 	Box(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Box();
 	void update(const float& dt);
+	void saveBox();
+	virtual void save();
 };
 

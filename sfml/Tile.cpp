@@ -39,4 +39,8 @@ void Tile::update(const float& dt) {
 	this->hitboxComponent->update();
 }
 
+void Tile::save()
+{
+}
+
 

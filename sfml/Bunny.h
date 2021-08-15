@@ -8,4 +8,6 @@ public:
 	Bunny(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Bunny();
 	void update(const float& dt);
+	void saveBunny();
+	virtual void save();
 };

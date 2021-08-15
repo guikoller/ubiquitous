@@ -9,5 +9,7 @@ public:
 	Portal(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Portal();
 	void update(const float& dt);
+	void savePortal();
+	virtual void save();
 };
 

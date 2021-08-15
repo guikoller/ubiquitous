@@ -50,4 +50,13 @@ void Bunny::update(const float& dt) {
 
 }
 
+void Bunny::saveBunny()
+{
+}
+
+void Bunny::save()
+{
+	saveBunny();
+}
+
 

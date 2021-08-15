@@ -2,6 +2,7 @@
 #include "MovementComponent.h"
 #include "AnimationComponent.h"
 #include "HitboxComponent.h"
+#include <fstream>
 
 class Entity{
 private:
@@ -14,6 +15,8 @@ public:
 	MovementComponent* movementComponent;
 	AnimationComponent* animationComponent;
 	HitboxComponent* hitboxComponent;
+
+	std::fstream file;
 
 	Entity();
 	virtual ~Entity();
@@ -39,5 +42,6 @@ public:
 	
 	virtual void update(const float& dt) = 0;
 	virtual void render(sf::RenderTarget& target);
+	virtual void save() = 0;
 };
 

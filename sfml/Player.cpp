@@ -3,6 +3,7 @@
 //INITIALIZER FUNCTIONS
 void Player::initVariables() {
 	life = 100;
+	score = 0;
 }
 void Player::initComponents() {
 	
@@ -48,6 +49,20 @@ void Player::update(const float& dt) {
 
 	this->hitboxComponent->update();
 	
+}
+
+void Player::savePlayer()
+{
+	file.open("Saves/save.txt", std::ios::app);
+	file << getID() << " ";
+	file << this->hitboxComponent->getPosition().x << " ";
+	file << this->hitboxComponent->getPosition().y << "\n";	
+	file.close();
+}
+
+void Player::save()
+{
+	savePlayer();
 }
 
 

@@ -13,4 +13,5 @@ public:
 
 	const bool isSolid()const;
 	void update(const float& dt);
+	void save();
 };

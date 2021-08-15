@@ -351,4 +351,11 @@ void GameState::save() {
 		file.close();
 		this->write = false;
 	}
+	file.open("Saves/save.txt", std::ofstream::out | std::ofstream::trunc);
+	file.close();
+	player->save();
+	for (int i = 0; i < entities.length(); i++)
+	{
+		entities.getElement(i)->save();
+	}
 }

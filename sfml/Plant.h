@@ -8,4 +8,6 @@ public:
 	Plant(float x, float y, sf::Texture& texture_sheet);
 	virtual ~Plant();
 	void update(const float& dt);
+	void savePlant();
+	virtual void save();
 };
