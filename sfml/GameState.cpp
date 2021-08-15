@@ -39,22 +39,22 @@ void GameState::initPlayers() {
 }
 
 void GameState::initList() {
-	for (int i = 0; i < 3; i++)
+	//for (int i = 0; i < 1; i++)
 		entities.add(new Enemy(0, 0, textures["ENEMY_SHEET"]));
 		
 	
 	entities.add(new Plant(80, 493, textures["PLANT_SHEET"]));
 	
-	for (int i = 0; i < 3; i++)
+	//for (int i = 0; i < 1; i++)
 		entities.add(new Bunny(0, 0, textures["BUNNY_SHEET"]));
 	
-	for (int i = 0; i < 3; i++)
+	//for (int i = 0; i < 1; i++)
 		entities.add(new Portal(0, 0, textures["PORTAL_SHEET"]));
 
-	for (int i = 0; i < 4; i++)
+	//for (int i = 0; i < 1; i++)
 		entities.add(new Flame(0, 0, textures["FLAME_SHEET"]));
 	
-	for (int i = 0; i < 5; i++)
+	//for (int i = 0; i < 1; i++)
 		entities.add(new Box(0, 0, textures["BOX"]));
 }
 
@@ -304,8 +304,6 @@ void GameState::update(const float& dt)
 		entities.update(dt);
 		collisionsP1.update(dt);
 		map->updateCollision(player, dt);
-
-		entities.getElement(2)->move(dt, 10, 10);
 	
 		updateScore();
 		updateLife();
@@ -340,7 +338,6 @@ void GameState::render(sf::RenderTarget& target){
 	if (paused) {
 		//PAUSE RENDER
 		pauseMenu->render(target);
-
 	}
 }
 
@@ -368,10 +365,6 @@ void GameState::load() {
 	{
 		pos.push_back(input);
 	}
-	player->setPosition(pos.at(0),pos.at(1));
-	for (int i = 2; i < 30; i+=2)
-	{
-		if(entities.getElement(i))
-			entities.getElement(i)->setPosition(pos.at(i),pos.at(i+1));
-	}
+
+	player->setPosition(pos.at(0), pos.at(1));
 }

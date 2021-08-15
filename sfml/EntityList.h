@@ -33,7 +33,7 @@ public:
 
     const int length()const;
 
-    Entity* getElement(const int pos);
+    Entity* getElement(int pos);
 
     void update(const float& dt);
     void render(sf::RenderTarget& target);

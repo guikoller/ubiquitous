@@ -43,6 +43,6 @@ const int EntityList::length()const {
     return this->entities.size();
 }
 
-Entity* EntityList::getElement(const int pos) {
+Entity* EntityList::getElement(int pos) {
     return entities.at(pos);
 }
