@@ -9,64 +9,69 @@
 #include "PauseMenu.h"
 #include "MainTileMap.h"
 
+namespace State {
+	namespace GameState {
+		class GameState : public State {
+		public:
+			PauseMenu* pauseMenu;
+			Entity::Player::Player* player;
+			Entity::Player::Player* player2;
+			sf::RectangleShape door;
 
-class GameState : public State{
-public:
-	PauseMenu* pauseMenu;
-	Player* player;
-	Player* player2;
-	
-	EntityList entities;
-	EntityList *projectiles;
+			EntityList entities;
+			EntityList* projectiles;
 
-	CollisionManager collisionsP1;
-	CollisionManager collisionsP2;
+			CollisionManager collisionsP1;
+			CollisionManager collisionsP2;
 
-	TileMap *map;
-	sf::Clock clock;
+			Entity::TileMap* map;
+			sf::Clock clock;
 
-	int score;
-	bool write;
-	sf::Text ScoreText;
-	sf::Text LifeText;
+			int score;
+			bool write;
+			sf::Text ScoreText;
+			sf::Text LifeText;
 
-	std::map<std::string, Button*> btns;
-	bool paused;
-	bool secondPlayer;
+			std::map<std::string, Button*> btns;
+			bool paused;
+			bool secondPlayer;
 
-	//Functions
-	void initTextures();
-	
-	void initPlayers();
-	void initList();
-	void initPositions();
-	
-	void initPauseMenu();
+			//Functions
+			void initTextures();
+
+			void initPlayers();
+			void initList();
+			void initPositions();
+
+			void initPauseMenu();
 
 
-	void initScore(int placar);
-	void initLife();
-public:
-	GameState(sf::RenderWindow* window, std::stack<State*>* states);
-	virtual ~GameState();
-	
+			void initScore(int placar);
+			void initLife();
+		public:
+			GameState(sf::RenderWindow* window, std::stack<State*>* states);
+			virtual ~GameState();
 
-	void save();
-	void load();
 
-	void moveEnemies(const float& dt);
-	
-	void updateInput(const float& dt);
-	void updateKeybinds(const float& dt);
-	void updatePlayerInput(const float& dt);
-	void updateButtons();
-	void createProjectiles();
-	void updateProjectiles(const float& dt);
-	
-	void updateScore();
-	void updateLife();
-	
-	void update(const float& dt);
-	void render(sf::RenderTarget& target);
-};
+			void save();
+			void load();
+
+			//void moveEnemies(const float& dt);
+
+			void updateInput(const float& dt);
+			void updateKeybinds(const float& dt);
+			void updatePlayerInput(const float& dt);
+			void updateButtons();
+			void createProjectiles();
+			void updateProjectiles(const float& dt);
+
+			void updateScore();
+			void updateLife();
+
+			void update(const float& dt);
+			void render(sf::RenderTarget& target);
+		};
+	}
+}
+
 

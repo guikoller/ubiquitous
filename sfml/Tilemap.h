@@ -2,29 +2,31 @@
 #include <vector>
 #include "Tile.h"
 #include "Player.h"
-class TileMap
-{
-protected:
-    std::vector< std::vector <Tile*>> map;
-    
-    sf::Texture texture;
-    
-    int height;
-    int width;
+namespace Entity {
+    class TileMap
+    {
+    protected:
+        std::vector< std::vector <Tile*>> map;
 
-    virtual void initTextures();
-    
-public:
-    TileMap();
-    virtual ~TileMap();
-    
-    void deleteMap();
+        sf::Texture texture;
 
-    //Acessores
-    
-    const bool isSolid(int x, int y) const;
+        int height;
+        int width;
 
-    virtual void createMap() = 0;
-    void updateCollision(Player* player, const float& dt);
-    void render(sf::RenderTarget& target);
-};
+        virtual void initTextures();
+
+    public:
+        TileMap();
+        virtual ~TileMap();
+
+        void deleteMap();
+
+        //Acessores
+
+        const bool isSolid(int x, int y) const;
+
+        virtual void createMap() = 0;
+        void updateCollision(Player::Player* player, const float& dt);
+        void render(sf::RenderTarget& target);
+    };
+}

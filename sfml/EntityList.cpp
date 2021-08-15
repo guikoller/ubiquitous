@@ -8,12 +8,12 @@ EntityList::~EntityList() {
     destroy();
 }
 
-void EntityList::add(Entity* ent) {
+void EntityList::add(Entity::Entity* ent) {
     entities.push_back(ent);
 }
 
 void EntityList::remove(const int pos) {
-    Entity* aux;
+    Entity::Entity* aux;
     aux = getElement(pos);
     entities.push_back(getElement(pos));
     delete aux;    
@@ -43,6 +43,6 @@ const int EntityList::length()const {
     return this->entities.size();
 }
 
-Entity* EntityList::getElement(int pos) {
+Entity::Entity* EntityList::getElement(int pos) {
     return entities.at(pos);
 }

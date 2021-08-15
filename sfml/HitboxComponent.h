@@ -1,36 +1,37 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+namespace Component {
+	class HitboxComponent
+	{
+	private:
+		sf::Sprite& sprite;
+		sf::RectangleShape hitbox;
+		sf::FloatRect nextPosition;
+		float offsetX;
+		float offsetY;
 
-class HitboxComponent
-{
-private:
-	sf::Sprite& sprite;
-	sf::RectangleShape hitbox;
-	sf::FloatRect nextPosition;
-	float offsetX;
-	float offsetY;
+	public:
+		HitboxComponent(sf::Sprite& sprite,
+			float offset_x, float offset_y,
+			float width, float height);
+		virtual ~HitboxComponent();
 
-public:
-	HitboxComponent(sf::Sprite& sprite,
-		float offset_x, float offset_y,
-		float width, float height);
-	virtual ~HitboxComponent();
 
-	
-	const sf::Vector2f& getPosition() const;
-	const sf::FloatRect getGlobalBounds() const;
-	const sf::FloatRect& getNextPosition(const sf::Vector2f& velocity);
+		const sf::Vector2f& getPosition() const;
+		const sf::FloatRect getGlobalBounds() const;
+		const sf::FloatRect& getNextPosition(const sf::Vector2f& velocity);
 
-	
-	void setPosition(const sf::Vector2f& position);
-	void setPosition(const float x, const float y);
 
-	void setColor(sf::Color color);
+		void setPosition(const sf::Vector2f& position);
+		void setPosition(const float x, const float y);
 
-	
-	bool intersects(const sf::FloatRect& frect);
+		void setColor(sf::Color color);
 
-	void update();
-	void render(sf::RenderTarget& target);
-};
+
+		bool intersects(const sf::FloatRect& frect);
+
+		void update();
+		void render(sf::RenderTarget& target);
+	};
+}

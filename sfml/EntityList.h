@@ -16,7 +16,7 @@
 
 class EntityList {
 private:
-    std::vector<Entity*> entities;
+    std::vector<Entity::Entity*> entities;
 
 public:
     EntityList();
@@ -24,7 +24,7 @@ public:
 
 
 
-    void add(Entity* ent);
+    void add(Entity::Entity* ent);
     void remove(const int pos);
 
 
@@ -33,7 +33,7 @@ public:
 
     const int length()const;
 
-    Entity* getElement(int pos);
+    Entity::Entity* getElement(int pos);
 
     void update(const float& dt);
     void render(sf::RenderTarget& target);

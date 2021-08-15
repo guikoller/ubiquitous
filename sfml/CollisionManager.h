@@ -3,11 +3,12 @@
 
 class CollisionManager{
 private:
-	Entity *ent;
+	Entity::Player::Player *ent;
 	EntityList *list;
+	sf::Clock clock;
 public:
 	CollisionManager();
 	~CollisionManager();
-	void add(Entity* ent, EntityList* list);
+	void add(Entity::Player::Player* ent, EntityList* list);
 	void update(const float& dt);
 };

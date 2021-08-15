@@ -13,7 +13,7 @@ private:
     sf::Clock dtClock;
     float dt;
 
-    std::stack <State*> states;
+    std::stack <State::State*> states;
 
 
     void initWindow();

@@ -1,43 +1,42 @@
 #pragma once
 #include "Entity.h"
+namespace State {
+    class State {
+    public:
+        std::stack<State*>* states;
 
+        sf::RenderWindow* window;
+        bool quit;
+        bool paused;
 
-class State {
-public:
-    std::stack<State*>* states;
+        sf::Font font;
 
-    sf::RenderWindow* window;
-    bool quit;
-    bool paused;
+        sf::Vector2i mousePosScreen;
+        sf::Vector2i mousePosWindow;
+        sf::Vector2f mousePosView;
 
-    sf::Font font;
+        std::ofstream file;
 
-    sf::Vector2i mousePosScreen;
-    sf::Vector2i mousePosWindow;
-    sf::Vector2f mousePosView;
+        //Resources
+        std::map<std::string, sf::Texture> textures;
 
-    std::ofstream file;
+        void initFont();
+    public:
+        State(sf::RenderWindow* window, std::stack<State*>* states);
+        virtual ~State();
 
-    //Resources
-    std::map<std::string, sf::Texture> textures;
+        const bool& getQuit() const;
 
-    void initFont();
-public:
-    State(sf::RenderWindow* window, std::stack<State*>* states);
-    virtual ~State();
+        virtual void checkQuit();
 
-    const bool& getQuit() const;
-    
-    virtual void checkQuit();
-    
-    virtual void endState();
-    void pauseState();
-    void unpauseState();
+        virtual void endState();
+        void pauseState();
+        void unpauseState();
 
-    virtual void updateMousePosition();
+        virtual void updateMousePosition();
 
-    virtual void updateKeybinds();
-    virtual void update(const float& dt) = 0;
-    virtual void render(sf::RenderTarget& target) = 0;
-};
-
+        virtual void updateKeybinds();
+        virtual void update(const float& dt) = 0;
+        virtual void render(sf::RenderTarget& target) = 0;
+    };
+}

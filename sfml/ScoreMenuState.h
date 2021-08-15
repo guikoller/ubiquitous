@@ -2,32 +2,35 @@
 
 #include "GameMenuState.h"
 
+namespace State {
+    namespace Menu {
+        class ScoreMenuState : public State {
+        private:
 
-class ScoreMenuState : public State {
-private:
+            sf::Text title;
 
-    sf::Text title;
+            sf::Text scores;
 
-    sf::Text scores;
+            sf::Texture texture;
+            sf::Sprite background;
 
-    sf::Texture texture;
-    sf::Sprite background;
+            Button* btn;
 
-    Button* btn;
+            std::map<std::string, Button*> btns;
 
-    std::map<std::string, Button*> btns;
+            void initButton();
+            void initBackground();
+            void initTitle();
+            void initScore();
+        public:
+            ScoreMenuState(sf::RenderWindow* window, std::stack<State*>* states);
+            virtual ~ScoreMenuState();
+            void updateButton();
+            void update(const float& dt);
+            void renderButton(sf::RenderTarget& target);
+            void render(sf::RenderTarget& target);
 
-    void initButton();
-    void initBackground();
-    void initTitle();
-    void initScore();
-public:
-    ScoreMenuState(sf::RenderWindow* window, std::stack<State*>* states);
-    virtual ~ScoreMenuState();
-    void updateButton();
-    void update(const float& dt);
-    void renderButton(sf::RenderTarget& target);
-    void render(sf::RenderTarget& target);
-    
-    std::string readFile();
-};
+            std::string readFile();
+        };
+    }
+}

@@ -160,7 +160,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMenuState.cpp" />
     <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="GraphicManager.cpp" />
     <ClCompile Include="HitboxComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -174,7 +173,6 @@
     <ClCompile Include="SecondGameState.cpp" />
     <ClCompile Include="SecondTileMap.cpp" />
     <ClCompile Include="State.cpp" />
-    <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="Tilemap.cpp" />
   </ItemGroup>
@@ -193,7 +191,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMenuState.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="GraphicManager.h" />
     <ClInclude Include="HitboxComponent.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MainMenu.h" />
@@ -207,7 +204,6 @@
     <ClInclude Include="SecondGameState.h" />
     <ClInclude Include="SecondTileMap.h" />
     <ClInclude Include="State.h" />
-    <ClInclude Include="StateManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Tilemap.h" />
   </ItemGroup>
