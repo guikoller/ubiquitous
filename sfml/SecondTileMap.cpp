@@ -1,13 +1,13 @@
-#include "MainTileMap.h"
+#include "SecondTileMap.h"
 
-void MainTileMap::initTextures()
+void SecondTileMap::initTextures()
 {
 	this->height = 14;
 	this->width = 25;
 
 	try
 	{
-		this->texture.loadFromFile("Resources/sprites/Tileset.png");
+		this->texture.loadFromFile("Resources/sprites/Tileset2.png");
 	}
 	catch (const std::exception&)
 	{
@@ -15,7 +15,7 @@ void MainTileMap::initTextures()
 	}
 }
 
-void MainTileMap::createMap()
+void SecondTileMap::createMap()
 {
 	this->map.clear();
 
@@ -69,7 +69,7 @@ void MainTileMap::createMap()
 			{
 				Linha.push_back(new Tile(i * 64.f, j * 64.f, this->texture, parede_dir, true));
 			}
-			else if ((i > 0 && i < 20 && j == 9) || (i > 5 && i < 25 && j == 4))//chão 2
+			else if ((i > 5 && i < 25 && j == 9) || (i > 0 && i < 20 && j == 4))//chão 2
 			{
 				Linha.push_back(new Tile(i * 64.f, j * 64.f, this->texture, chao2, true));
 			}
@@ -85,13 +85,16 @@ void MainTileMap::createMap()
 	}
 }
 
-MainTileMap::MainTileMap()
+SecondTileMap::SecondTileMap()
 {
 	initTextures();
 	createMap();
 }
 
-MainTileMap::~MainTileMap()
+SecondTileMap::~SecondTileMap()
 {
 	deleteMap();
 }
+
+
+

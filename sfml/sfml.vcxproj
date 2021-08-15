@@ -171,6 +171,7 @@
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="ScoreMenuState.cpp" />
     <ClCompile Include="SecondGameState.cpp" />
+    <ClCompile Include="SecondTileMap.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="Portal.h" />
     <ClInclude Include="ScoreMenuState.h" />
     <ClInclude Include="SecondGameState.h" />
+    <ClInclude Include="SecondTileMap.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="Tile.h" />

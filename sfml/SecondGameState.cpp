@@ -15,7 +15,7 @@ SecondGameState::SecondGameState(sf::RenderWindow* window, std::stack<State*>* s
 
 	collisionsP1.add(player, &entities);
 	collisionsP2.add(player2, &entities);
-	this->map = new MainTileMap();
+	this->map = new SecondTileMap();
 }
 
 SecondGameState::~SecondGameState()

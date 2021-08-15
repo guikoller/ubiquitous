@@ -2,14 +2,14 @@
 
 #include "Tilemap.h"
 
-class MainTileMap :
+class SecondTileMap :
     public TileMap
 {
 private:
     void initTextures();
 public:
-    MainTileMap();
-    ~MainTileMap();
-    
+    SecondTileMap();
+    ~SecondTileMap();
+
     virtual void createMap();
 };

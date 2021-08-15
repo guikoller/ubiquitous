@@ -138,6 +138,9 @@
     <ClCompile Include="SecondGameState.cpp">
       <Filter>States\GameStates</Filter>
     </ClCompile>
+    <ClCompile Include="SecondTileMap.cpp">
+      <Filter>Entities\TileMap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -226,6 +229,9 @@
     </ClInclude>
     <ClInclude Include="SecondGameState.h">
       <Filter>States\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondTileMap.h">
+      <Filter>Entities\TileMap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
