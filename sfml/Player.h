@@ -16,8 +16,14 @@ namespace Entity {
 			void addLife(int num) {
 				this->life += num;
 			}
+			void addScore(int num) {
+				this->score += num;
+			}
 			const int getLife()const {
 				return life;
+			}
+			const int getScore()const {
+				return score;
 			}
 			void savePlayer();
 			virtual void save();

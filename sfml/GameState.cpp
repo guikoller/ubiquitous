@@ -44,7 +44,7 @@ namespace State {
 				entities.add(new Entity::Enemy::Enemy(0, 0, textures["ENEMY_SHEET"]));
 
 
-			entities.add(new Entity::Enemy::Plant(80, 493, textures["PLANT_SHEET"]));
+			entities.add(new Entity::Enemy::Plant(123, 493, textures["PLANT_SHEET"]));
 
 			for (int i = 0; i < 3; i++)
 				entities.add(new Entity::Enemy::Bunny(0, 0, textures["BUNNY_SHEET"]));
@@ -170,7 +170,7 @@ namespace State {
 
 		GameState::GameState(sf::RenderWindow* window, std::stack<State*>* states) :State(window, states)
 		{
-
+			/*
 			initFont();
 			initTextures();
 			initPlayers();
@@ -185,7 +185,7 @@ namespace State {
 			collisionsP1.add(player, &entities);
 			collisionsP2.add(player2, &entities);
 
-			this->map = new Entity::MainTileMap();
+			this->map = new Entity::MainTileMap();*/
 		}
 
 		GameState::~GameState() {
@@ -270,7 +270,7 @@ namespace State {
 		{
 
 
-			if (clock.getElapsedTime().asSeconds() >= 0.8)
+			if (clock.getElapsedTime().asSeconds() >= 0.8 && projectiles->length()<20)
 			{
 				projectiles->add(new Entity::Obstacle::Bullet(80, 488, textures["BULLET"]));
 				printf("projectile created\n");
@@ -282,14 +282,14 @@ namespace State {
 		}
 
 		void GameState::updateScore() {
-			this->ScoreText.setString(std::to_string(this->score));
+			this->ScoreText.setString(std::to_string(this->player->getScore()));
 		}
 
 		void GameState::updateLife() {
 			int vida = this->player->getLife();
 			this->LifeText.setString(std::to_string(vida));
 			if (vida <= 0) {
-				//this->quit = true;
+				this->quit = true;
 			}
 		}
 
@@ -343,6 +343,8 @@ namespace State {
 			this->map->render(target);
 
 			entities.render(target);
+
+			target.draw(door);
 
 			player->render(target);
 			if (secondPlayer)

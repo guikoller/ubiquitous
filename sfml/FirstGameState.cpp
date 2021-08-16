@@ -6,6 +6,7 @@ namespace State {
 			initFont();
 			initTextures();
 			initPlayers();
+			player->hitboxComponent->setPosition(100,700);
 			initList();
 			initPositions();
 			initPauseMenu();
@@ -19,6 +20,10 @@ namespace State {
 			this->map = new Entity::MainTileMap();
 
 			projectiles = new EntityList();
+			
+			door.setFillColor(sf::Color::Magenta);
+			door.setSize(sf::Vector2f(50, 100));
+			door.setPosition(1400, 150);
 		}
 
 		FirstGameState::~FirstGameState()

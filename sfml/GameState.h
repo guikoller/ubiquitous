@@ -40,8 +40,8 @@ namespace State {
 			void initTextures();
 
 			void initPlayers();
-			void initList();
-			void initPositions();
+			virtual void initList();
+			virtual void initPositions();
 
 			void initPauseMenu();
 

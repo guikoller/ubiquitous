@@ -44,6 +44,14 @@ void CollisionManager::update(const float &dt) {
 					if (list->getElement(i)->getID() == 4 || list->getElement(i)->getID() == 5|| list->getElement(i)->getID() == 6) {
 						list->getElement(i)->setPosition(10000, 1000);
 					}
+					
+					if (list->getElement(i)->getID() == 4) {
+						ent->addScore(100);
+					}else if (list->getElement(i)->getID() == 5) {
+						ent->addScore(300);
+					}else if (list->getElement(i)->getID() == 6) {
+						ent->addScore(500);
+					}
 						
 					
 					printf("colisão chão\n");
